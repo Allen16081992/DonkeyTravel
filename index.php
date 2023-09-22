@@ -16,23 +16,23 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Home</a>
+                </li>
+                <!-- Add Login Button Trigger -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#registrationModal">Register</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tours</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
-                </li>
-                <!-- Add Login Button Trigger -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
                 </li>
             </ul>
         </div>
@@ -43,6 +43,12 @@
 <section class="jumbotron text-center">
     <h1>Welcome to Donkey Travel</h1>
     <p>Your Adventure Awaits</p>
+    <!-- Add images or other content here -->
+</section>
+
+<!-- Featured Tours Section -->
+<section class="container">
+    <!-- Add tour cards here -->
 </section>
 
 <!-- About Us Section -->
@@ -56,16 +62,6 @@
     </div>
 </section>
 
-<!-- Featured Tours Section -->
-<section class="container">
-    <!-- Add tour cards here -->
-</section>
-
-<!-- Testimonials Section -->
-<section class="container">
-    <!-- Add testimonials here -->
-</section>
-
 <!-- Contact Us Section -->
 <section class="container">
     <!-- Add contact information and form here -->
@@ -76,34 +72,11 @@
     <p>&copy; 2023 Donkey Travel. All rights reserved.</p>
 </footer>
 
-<!-- Login Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
-     aria-hidden="true">
-     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="login.php" method="POST">
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
-            </div>
-            <!-- You can add a footer for additional options or links -->
-        </div>
-    </div>
-</div>
+<!-- Modals -->
+<?php 
+    include_once 'GUIwidgets/login.gui.php'; 
+    include_once 'GUIwidgets/signup.gui.php'; 
+?>
 
 <!-- Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
