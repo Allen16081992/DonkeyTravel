@@ -3,10 +3,8 @@
 
     function ClassAgent($className) {
         $classMap = [
-            'Database' => 'config/classes/Database.php',
-            'SessionManagement' => 'path/to/session_management.config.php',
-            'SignupController' => 'path/to/signup.controller.php', // Add this mapping.
-            'SignupClass' => 'path/to/signup.class.php', // Add this mapping.
+            'Database' => 'classes/database.class.php',
+            'SessionManagement' => 'classes/session_management.class.php',
         ];
     
         if (isset($classMap[$className])) {

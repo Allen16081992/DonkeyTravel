@@ -5,7 +5,7 @@
     private $password = '';
     private $database = 'donkeytra_db';
     
-    function connect() {
+    public function connect() {
       try { 
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->database;
         $pdo = new PDO($dsn, $this->user, $this->password);
@@ -13,7 +13,7 @@
         return $pdo; 
       }  
       catch(PDOException $e){
-        throw new Exception("Failed to connectto the database." . $e->getMessage());
+        throw new Exception("Failed to connect to the database." . $e->getMessage());
       }     
     }
   }
