@@ -16,12 +16,12 @@
                         <input type="text" class="form-control" id="naam" placeholder="Voer uw naam in">
                     </div>
                     <div class="form-group">
-                        <label for="adres">Adres:</label>
-                        <input type="text" class="form-control" id="adres" placeholder="Voer uw adres in">
-                    </div>
-                    <div class="form-group">
                         <label for="email">E-mailadres:</label>
                         <input type="email" class="form-control" id="email" placeholder="Voer uw e-mailadres in">
+                    </div>
+                    <div class="form-group">
+                        <label for="wachtwoord">Wachtwoord:</label>
+                        <input type="text" class="form-control" id="wachtwoord" placeholder="Voer uw wachtwoord in">
                     </div>
                     <div class="form-group">
                         <label for="telefoon">Mobiel telefoonnummer:</label>

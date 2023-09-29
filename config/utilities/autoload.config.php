@@ -5,7 +5,8 @@
         $classMap = [
             'Database' => 'config/classes/Database.php',
             'SessionManagement' => 'path/to/session_management.config.php',
-            // Define more class mappings as needed.
+            'SignupController' => 'path/to/signup.controller.php', // Add this mapping.
+            'SignupClass' => 'path/to/signup.class.php', // Add this mapping.
         ];
     
         if (isset($classMap[$className])) {
