@@ -7,9 +7,10 @@
             'SessionManagement' => 'classes/session_management.class.php',
         ];
     
-        if (isset($classMap[$className])) {
-            require_once $classMap[$className];
-        } else {
+        // Verify if the class was set.
+        if (!isset($classMap[$className])) {
             throw new InvalidArgumentException("Class '$className' not found.");
         }
+
+        require_once $classMap[$className];
     }

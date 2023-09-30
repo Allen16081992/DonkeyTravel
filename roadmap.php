@@ -10,7 +10,12 @@
     <style>
         #map {
             height: 400px;
-            width: 100%;
+            width: 50%;
+            margin:20px;
+            border-radius: 15px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: silver;
         }
     </style>
 </head>
