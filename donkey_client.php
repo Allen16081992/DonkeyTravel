@@ -16,17 +16,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>Mijn DonkeyTravel</title>
-    
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- DK Styling -->
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- Navigation -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
 </head>
 <body>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+
     <!-- Navigation Bar -->
     <?php 
         include_once 'GUIwidgets/client_navbar.gui.php'; 
         include_once 'GUIwidgets/client_tables.gui.php';
+        include_once 'GUIwidgets/client_navigate.gui.php';
     ?>
 
     <!-- Bootstrap JS and other scripts -->
@@ -44,5 +52,21 @@
             });
         });
     </script>
+    <script>
+        document.getElementById('showMapBtn').addEventListener('click', function() {
+            var map = document.getElementById('map');
+            var menu = document.getElementById('menu');
+
+            if (map.style.opacity === '0') {
+                map.style.opacity = '1';
+                menu.style.display = 'flex';
+            } else {
+                map.style.opacity = '1';
+                menu.style.display = 'flex';
+            }
+        });
+    </script>
+
+    <script src="js/mapbox-map.js"></script>
 </body>
 </html>

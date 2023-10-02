@@ -1,0 +1,17 @@
+#map {
+    opacity: 0;
+    height: 400px;
+    width: 100%;
+    margin:20px;
+    border-radius: 15px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: silver;
+}
+#menu {
+    display: none;
+    background: #efefef;
+    margin-top:0;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
