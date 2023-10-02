@@ -13,19 +13,19 @@
                 <form action="config/createSignUp.php" method="post">
                     <div class="form-group">
                         <label for="naam">Naam:</label>
-                        <input type="text" class="form-control" id="naam" placeholder="Voer uw naam in">
+                        <input type="text" class="form-control" name="name" placeholder="Name">
                     </div>
                     <div class="form-group">
                         <label for="email">E-mailadres:</label>
-                        <input type="email" class="form-control" id="email" placeholder="Voer uw e-mailadres in">
+                        <input type="email" class="form-control" name="email" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <label for="wachtwoord">Wachtwoord:</label>
-                        <input type="text" class="form-control" id="wachtwoord" placeholder="Voer uw wachtwoord in">
+                        <input type="text" class="form-control" name="password" placeholder="Password">
                     </div>
                     <div class="form-group">
                         <label for="telefoon">Mobiel telefoonnummer:</label>
-                        <input type="tel" class="form-control" id="telefoon" placeholder="Voer uw mobiel telefoonnummer in">
+                        <input type="tel" class="form-control" name="phone" placeholder="Phone">
                     </div>
                     <button type="submit" class="btn btn-primary">Verzenden</button>
                 </form>
