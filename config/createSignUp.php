@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHODE"] == "POST" && isset($_POST['submit'])) {
     $registrate->signupUser();
 
     // Dismiss to homepage
-    header('location: ../signup.gui.php');
+    header('location: ../index.php');
     exit();
     
 }
