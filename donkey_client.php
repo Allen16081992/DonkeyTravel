@@ -30,7 +30,7 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 
-    <!-- Navigation Bar -->
+    <!-- Widgets -->
     <?php 
         include_once 'GUIwidgets/client_navbar.gui.php'; 
         include_once 'GUIwidgets/client_tables.gui.php';
@@ -66,7 +66,6 @@
             }
         });
     </script>
-
     <script src="js/mapbox-map.js"></script>
 </body>
 </html>

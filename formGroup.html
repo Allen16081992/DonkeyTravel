@@ -34,34 +34,7 @@
             <button type="submit" class="btn btn-primary">Verzenden</button>
         </form>
     </div>
-    <!-- Boeking wijzigen -->
-    <div class="container mt-5">
-        <h1>Boeking wijzigen</h1>
-        <form>
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="startdatum">Startdatum:</label>
-                    <input type="date" class="form-control" id="startdatum" placeholder="Selecteer de startdatum">
-                </div>
-                <label for="tocht">Tocht:</label>
-                <select class="form-control" id="tocht">
-                    <option value="tocht1">Tocht 1</option>
-                    <option value="tocht2">Tocht 2</option>
-                    <option value="tocht3">Tocht 3</option>
-                    <option value="tocht4">Tocht 4</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="startdatum">Startdatum:</label>
-                <input type="date" class="form-control" id="startdatum" placeholder="Selecteer de startdatum">
-            </div>
-            <div class="form-group">
-                <label for="einddatum">Einddatum:</label>
-                <input type="date" class="form-control" id="einddatum" placeholder="Selecteer de einddatum">
-            </div>
-            <button type="submit" class="btn btn-primary">Aanmelden</button>
-        </form>
-    </div>
+
     <!-- Boeking -->
     <div class="container mt-5">
         <h1>Tocht Aanmelden</h1>
@@ -97,92 +70,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Tocht Aanmelden</title>
-</head>
-<body>
-    <div class="container mt-5">
-        <h1>Tocht Aanmelden</h1>
-        <form>
-            <div class="form-group">
-                <label for="startdatum">Startdatum:</label>
-                <input type="date" class="form-control" id="startdatum" placeholder="Selecteer de startdatum">
-            </div>
-            <div class="form-group">
-                <label for="einddatum">Einddatum:</label>
-                <input type="date" class="form-control" id="einddatum" placeholder="Selecteer de einddatum">
-            </div>
-            <div class="form-group">
-                <label for="pincode">PIN-code:</label>
-                <input type="password" class="form-control" id="pincode" placeholder="Voer uw PIN-code in">
-            </div>
-            <div class="form-group">
-                <label for="klant">Klant:</label>
-                <input type="text" class="form-control" id="klant" placeholder="Voer de klantnaam in">
-            </div>
-            <div class="form-group">
-                <label for="contact">E-mail/Telefoon:</label>
-                <input type="text" class="form-control" id="contact" placeholder="Voer het e-mailadres of telefoonnummer in">
-            </div>
-            <div class="form-group">
-                <label for="tocht">Tocht:</label>
-                <select class="form-control" id="tocht">
-                    <option value="tocht1">Tocht 1</option>
-                    <option value="tocht2">Tocht 2</option>
-                    <option value="tocht3">Tocht 3</option>
-                    <option value="tocht4">Tocht 4</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Aanmelden</button>
-        </form>
-    </div>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Formulier</title>
-</head>
-<body>
-    <h1>Vul het formulier in</h1>
-    
-    <?php
-    // Controleer of het formulier is verzonden
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Verkrijg de ingevoerde gegevens
-        $naam = $_POST["naam"];
-        $email = $_POST["email"];
-        
-        // Toon de ingevoerde gegevens
-        echo "<h2>Bedankt voor het invullen van het formulier!</h2>";
-        echo "<p>Naam: $naam</p>";
-        echo "<p>E-mailadres: $email</p>";
-    }
-    ?>
-
-    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-        <label for="naam">Naam:</label>
-        <input type="text" id="naam" name="naam" required><br><br>
-
-        <label for="email">E-mailadres:</label>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <input type="submit" value="Verzenden">
-    </form>
 </body>
 </html>
