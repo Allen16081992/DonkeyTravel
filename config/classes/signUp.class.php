@@ -19,7 +19,7 @@ class Registration extends Database {
         $stmt = $this->connect()->prepare("INSERT INTO klanten (name, email, password, phone, salt) VALUES (?, ?, ?, ?);");  
 
         // If this fails, kick back to homepage.
-        if(!$stmt->execute(array($name,  $email, $HashThisNOW, $phone $salt))) {
+        if(!$stmt->execute(array($name,  $email, $HashThisNOW, $phone, $salt)) {
             $stmt = null;
             $_SESSION['error'] = 'Database query failed.';
             header('location: ../index.php');
