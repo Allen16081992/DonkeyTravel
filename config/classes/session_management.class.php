@@ -3,7 +3,6 @@
         public static function setSession() {
             if (!isset($_SESSION)) {
                 session_start();
-                echo "Loading session...\n";
             }
         }
 
