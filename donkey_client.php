@@ -31,11 +31,23 @@
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 
     <!-- Widgets -->
-    <?php 
-        include_once 'GUIwidgets/client_navbar.gui.php'; 
-        include_once 'GUIwidgets/client_tables.gui.php';
-        include_once 'GUIwidgets/client_navigate.gui.php';
-    ?>
+    <?php include_once 'GUIwidgets/client_navbar.gui.php'; ?>
+
+    <!-- Table Controls -->
+    <div class="container mt-5">
+        <h2>Overzicht</h2>
+        <?php 
+            if (isset($_SESSION['ID']) && isset($_SESSION['admin'])) {
+                include_once 'GUIwidgets/client_admin_navbar.gui.php'; 
+            } else { 
+                //include_once 'GUIwidgets/client_klant_navbar.gui.php'; 
+                include_once 'GUIwidgets/client_admin_navbar.gui.php';
+            }
+        ?>        
+    </div>
+
+    <!-- GPS-Tracking -->
+    <?php include_once 'GUIwidgets/client_navigate.gui.php'; ?>
 
     <!-- Bootstrap JS and other scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

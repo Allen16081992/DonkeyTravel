@@ -1,7 +1,5 @@
 <?php // Loubna Faress
-
 session_start();
-
 // Controleer of de gebruiker is ingelogd
 if (isset($_SESSION['gebruikersnaam'])) {
     // Verwijder alle sessievariabelen
