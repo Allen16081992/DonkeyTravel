@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="config/createSignUp.php" method="post">
+                <form action="config/createUser.php" method="post">
                     <div class="form-group">
                         <label for="naam">Naam:</label>
                         <input type="text" class="form-control" name="name" placeholder="Name">

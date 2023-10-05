@@ -11,7 +11,7 @@
                     <a class="nav-link" href="#">Ingelogd als: [mijn usernaam] <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../config/logout.config.php">Uitloggen</a>
+                    <a class="nav-link" href="logout.php">Uitloggen</a>
                 </li>
             </ul>
         </div>

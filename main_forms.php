@@ -99,6 +99,10 @@
                                 <input type='email' class='form-control' name='email' placeholder='Email'>
                             </div>
                             <div class='form-group'>
+                                <label for='phone'>Mobiel telefoonnummer:</label>
+                                <input type='tel' class='form-control' name='phone' placeholder='Phone'>
+                            </div>
+                            <div class='form-group'>
                                 <label for='coordinates'>Coördinaten:</label>
                                 <input type='text' class='form-control' name='coordinates' placeholder='coordinates'>
                             </div>

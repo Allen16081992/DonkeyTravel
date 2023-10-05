@@ -1,19 +1,24 @@
-<?php
-require_once 'database.class.php';
+<?php // Dhr. Allen Pieter
+    // This session_start is solely for displaying error messages.
+    require_once 'session_management.config.php';
+    
+    class Herberg extends Database {
 
-class Herberg extends Database {
-    protected function setHerberg($name, $address, $email, $coordinates) {
-        $stmt = $this->connect()->prepare(
-            "INSERT INTO herbergen (Naam, Adres, Email, Coordinaten) VALUES (?, ?, ?, ?)"
-        );
+        // Verify if the data already exists in the database.
+        protected function setHerberg($name, $adres, $email, $phone, $latlon) {
 
-        if (!$stmt->execute([$name, $address, $email, $coordinates])) {
-            // Handle errors if necessary
-            die("Database request failed");
+            // Insert user into the accounts table
+            $stmt = $this->connect()->prepare("INSERT INTO herbergen (Naam, Adres, Email, Telefoon, Coordinaten) VALUES (?, ?, ?, ?, ?)");  
+
+            // If this fails, kick back to homepage.
+            if(!$stmt->execute([$name, $adres, $email, $phone, $latlon])) {
+                $stmt = null;
+                $_SESSION['error'] = 'Database inquisitie gefaald.';
+                header('location: ../donkey_client.php');
+                exit();
+            }
+
+            $stmt = null;
+            $_SESSION['success'] = 'You have successfully registered.';
         }
-
-        $stmt = null;
     }
-    // You can add methods for update and delete operations here
-}
-?>

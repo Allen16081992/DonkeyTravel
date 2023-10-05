@@ -1,19 +1,32 @@
-<?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+<?php // Dhr. Allen Pieter
+    // Include your Database class or connection logic here
+    include_once 'classes/database.class.php'; 
 
-require_once 'classes/database.class.php';
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        try {
+            // Assuming you have a Database object or connection logic
+            $db = new Database();
+            $pdo = $db->connect();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $address = $_POST['adres'];
-    $email = $_POST['email'];
-    $coordinates = $_POST['coordinates'];
+            // Retrieve form data
+            $name = $_POST['name'];
+            $adres = $_POST['adres'];
+            $email = $_POST['email'];
+            $coordinates = $_POST['coordinates'];
 
-    require_once 'herberg_control.php';
+            // Prepare and execute the SQL query
+            $stmt = $pdo->prepare("INSERT INTO herbergen (Naam, Adres, Email, Coordinaten) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$name, $adres, $email, $coordinates]);
 
-    $herbergControl = new HerbergControl();
-    $herbergControl->addHerberg($name, $address, $email, $coordinates);
-}
-?>
+            // Optionally, you can redirect to a success page or do other actions
+            $_SESSION['error'] = 'Database inquisitie gelukt.';
+            header("Location: ../donkey_client.php");
+            exit();
+        } catch (PDOException $e) {
+            // Handle database connection or query errors
+            echo "Error: " . $e->getMessage();
+        } catch (Exception $e) {
+            // Handle other exceptions
+            echo "Error: " . $e->getMessage();
+        }
+    }
