@@ -1,6 +1,6 @@
 <?php // Loubna Faress
 // These variables are free to use by anything.
-if($_SERVER["REQUEST_METHODE"] == "POST" && isset($_POST['submit'])) {
+if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
         
     // Absorb data in the first step of the registration form
     $name = $_POST['name'];
@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHODE"] == "POST" && isset($_POST['submit'])) {
     $phone = $_POST['phone']; 
 
     // Initialise signup class
-    require_once "idb.config.php";
+    require_once "database.class.php";
     require_once "Classes/signup.class.config.php";
     require_once "Controller/signup/control.config.php";
 
