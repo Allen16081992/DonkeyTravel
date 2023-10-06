@@ -23,7 +23,13 @@
                 <th>Tochten ID</th>
                 <th>Klanten ID</th>
                 <th>Statussen ID</th>
-                <th></th>
+                <th>
+                    <form id="AddBoek" action="main_forms.php" method="post">
+                        <button type="submit" name="CreateBoek" value="CreateBoek" class="btn btn-outline-secondary btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg>
+                        </button>
+                    </form>                  
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -61,7 +67,13 @@
                 <th>Adres</th>
                 <th>Email</th>
                 <th>Coordinaten</th>
-                <th></th>
+                <th>
+                    <form id="AddHerb" action="main_forms.php" method="post">
+                        <button type="submit" name="CreateHerb" value="CreateHerb" class="btn btn-outline-secondary btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg>
+                        </button>
+                    </form>                  
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -128,7 +140,13 @@
                 <th>FKstatussenID</th>
                 <th></th>
                 <th></th>
-                <th></th>
+                <th>
+                    <form id="AddOvernacht" action="main_forms.php" method="post">
+                        <button type="submit" name="CreateOvern" value="CreateOvern" class="btn btn-outline-secondary btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg>
+                        </button>
+                    </form>                  
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -159,7 +177,13 @@
                 <th>FKstatussenID</th>
                 <th></th>
                 <th></th>
-                <th></th>
+                <th>
+                    <form id="AddPauze" action="main_forms.php" method="post">
+                        <button type="submit" name="CreatePauze" value="CreatePauze" class="btn btn-outline-secondary btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg>
+                        </button>
+                    </form>                  
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -190,7 +214,13 @@
                 <th>Email</th>
                 <th>Telefoon</th>
                 <th>Coordinaten</th>
-                <th></th>
+                <th>
+                    <form id="AddRest" action="main_forms.php" method="post">
+                        <button type="submit" name="CreateRest" value="CreateRest" class="btn btn-outline-secondary btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg>
+                        </button>
+                    </form>                  
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -229,7 +259,13 @@
                 <th>Verwijderbaar</th>
                 <th>PINtoekennen</th>
                 <th></th>
-                <th></th>
+                <th>
+                    <form id="AddStatus" action="main_forms.php" method="post">
+                        <button type="submit" name="CreateStatus" value="CreateStatus" class="btn btn-outline-secondary btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg>
+                        </button>
+                    </form>                  
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -260,7 +296,13 @@
                 <th>AantalDagen</th>
                 <th></th>
                 <th></th>
-                <th></th>
+                <th>
+                    <form id="AddTocht" action="main_forms.php" method="post">
+                        <button type="submit" name="CreateTocht" value="CreateTocht" class="btn btn-outline-secondary btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg>
+                        </button>
+                    </form>                  
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -290,7 +332,13 @@
                 <th>Latitude</th>
                 <th>Longitude</th>
                 <th>Time</th>
-                <th></th>
+                <th>
+                    <form id="AddTrack" action="main_forms.php" method="post">
+                        <button type="submit" name="CreateTrackr" value="CreateTrackr" class="btn btn-outline-secondary btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg>
+                        </button>
+                    </form>                  
+                </th>
             </tr>
         </thead>
         <tbody>

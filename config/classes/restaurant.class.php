@@ -1,4 +1,4 @@
-<?php
+<?php // Khaqan Ul Haq Awan
 include_once "database.class.php";
 class restaurants extends Database {
     private $Naam;

@@ -22,10 +22,10 @@
                             <div class'form-group'>
                                 <div class='form-group'>
                                     <label for='startdatum'>Startdatum:</label>
-                                    <input type='date' class='form-control' id='startdatum' placeholder='Selecteer de startdatum'>
+                                    <input type='date' class='form-control' name='startdatum' placeholder='Selecteer de startdatum'>
                                 </div>
                                 <label for='tocht'>Tocht:</label>
-                                <select class='form-control' id='tocht'>
+                                <select class='form-control' name='tocht'>
                                     <option value='tocht1'>Tocht 1</option>
                                     <option value='tocht2'>Tocht 2</option>
                                     <option value='tocht3'>Tocht 3</option>
@@ -61,7 +61,7 @@
                     echo "
                         <h3>Boeking Verwijderen</h3>
                         <form action='#' method='post'>
-                            <div class'form-group'>
+                            <div class='form-group'>
                                 <div class='form-group'>
                                     <label for='startdatum'>Startdatum:</label>
                                     <input type='date' class='form-control' id='startdatum' placeholder='Selecteer de startdatum'>
@@ -85,18 +85,22 @@
                 if (isset($_POST['CreateHerb'])) {
                     echo "
                         <h3>Herberg Aanmaken</h3>
-                        <form action='#' method='post'>
+                        <form name='AddHerb' action='config/add_herberg.php' method='post'>
                             <div class='form-group'>
                                 <label for='name'>Naam:</label>
                                 <input type='text' class='form-control' name='name' placeholder='Name'>
                             </div>
                             <div class='form-group'>
-                                <label for='adres'>E-Adres:</label>
+                                <label for='adres'>Adres:</label>
                                 <input type='text' class='form-control' name='adres' placeholder='Adres'>
                             </div>
                             <div class='form-group'>
-                                <label for='email'>E-mailadres:</label>
+                                <label for='email'>Emailadres:</label>
                                 <input type='email' class='form-control' name='email' placeholder='Email'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='phone'>Mobiel telefoonnummer:</label>
+                                <input type='tel' class='form-control' name='phone' placeholder='Phone'>
                             </div>
                             <div class='form-group'>
                                 <label for='coordinates'>Coördinaten:</label>
@@ -109,17 +113,17 @@
                 elseif (isset($_POST['EditHerb'])) {
                     echo "
                         <h3>Herberg Wijzigen</h3>
-                        <form action='#' method='post'>
+                        <form name='EditHerb' action='config/multi_herberg.config.php' method='post'>
                             <div class='form-group'>
                                 <label for='name'>Naam:</label>
                                 <input type='text' class='form-control' name='name' placeholder='Name'>
                             </div>
                             <div class='form-group'>
-                                <label for='adres'>E-Adres:</label>
+                                <label for='adres'>Adres:</label>
                                 <input type='text' class='form-control' name='adres' placeholder='Adres'>
                             </div>
                             <div class='form-group'>
-                                <label for='email'>E-mailadres:</label>
+                                <label for='email'>Emailadres:</label>
                                 <input type='email' class='form-control' name='email' placeholder='Email'>
                             </div>
                             <div class='form-group'>
@@ -133,17 +137,17 @@
                 elseif (isset($_POST['DeleteHerb'])) {
                     echo "
                         <h3>Herberg Verwijderen</h3>
-                        <form action='#' method='post'>
+                        <form name='DeleteHerb' action='config/multi_herberg.config.php' method='post'>
                             <div class='form-group'>
                                 <label for='name'>Naam:</label>
                                 <input type='text' class='form-control' name='name' value='Name' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='adres'>E-Adres:</label>
+                                <label for='adres'>Adres:</label>
                                 <input type='text' class='form-control' name='adres' value='Adres' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='email'>E-mailadres:</label>
+                                <label for='email'>Emailadres:</label>
                                 <input type='email' class='form-control' name='email' value='Email' readonly>
                             </div>
                             <div class='form-group'>
@@ -163,11 +167,11 @@
                                 <input type='text' class='form-control' name='name' placeholder='Name'>
                             </div>
                             <div class='form-group'>
-                                <label for='adres'>E-Adres:</label>
+                                <label for='adres'>EAdres:</label>
                                 <input type='text' class='form-control' name='adres' placeholder='Adres'>
                             </div>
                             <div class='form-group'>
-                                <label for='email'>E-mailadres:</label>
+                                <label for='email'>Emailadres:</label>
                                 <input type='email' class='form-control' name='email' placeholder='Email'>
                             </div>
                             <div class='form-group'>
@@ -191,11 +195,11 @@
                                 <input type='text' class='form-control' name='name' placeholder='Name'>
                             </div>
                             <div class='form-group'>
-                                <label for='adres'>E-Adres:</label>
+                                <label for='adres'>Adres:</label>
                                 <input type='text' class='form-control' name='adres' placeholder='Adres'>
                             </div>
                             <div class='form-group'>
-                                <label for='email'>E-mailadres:</label>
+                                <label for='email'>Emailadres:</label>
                                 <input type='email' class='form-control' name='email' placeholder='Email'>
                             </div>
                             <div class='form-group'>
@@ -219,11 +223,11 @@
                                 <input type='text' class='form-control' name='name' value='Name' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='adres'>E-Adres:</label>
+                                <label for='adres'>EAdres:</label>
                                 <input type='text' class='form-control' name='adres' value='Adres' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='email'>E-mailadres:</label>
+                                <label for='email'>Emailadres:</label>
                                 <input type='email' class='form-control' name='email' value='Email' readonly>
                             </div>
                             <div class='form-group'>
