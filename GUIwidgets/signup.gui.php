@@ -10,24 +10,20 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="config/createSignUp.php" method="post">
-                    <div class="form-group">
-                        <label for="naam">Naam:</label>
-                        <input type="text" class="form-control" name="name" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mailadres:</label>
-                        <input type="email" class="form-control" name="email" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="wachtwoord">Wachtwoord:</label>
-                        <input type="text" class="form-control" name="password" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <label for="telefoon">Mobiel telefoonnummer:</label>
-                        <input type="tel" class="form-control" name="phone" placeholder="Phone">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Verzenden</button>
+                <form method="post" action="config/create.klanten.php">
+                    <label>Naam:</label>
+                    <input type="text" name="Naam"><br>
+
+                    <label>Email:</label>
+                    <input type="text" name="Email"><br>
+
+                    <label>Telefoon:</label>
+                    <input type="text" name="Telefoon"><br>
+
+                    <label>Wachtwoord:</label>
+                    <input type="password" value="FakePSW" id="myInput" name="Wachtwoord"><br>
+
+                    <input type="submit" name="submit" value="Opslaan">
                 </form>
             </div>
         </div>
