@@ -10,22 +10,21 @@
                 </button>
             </div>
             <div class="modal-body">
-<<<<<<< HEAD
                 <form method="post" action="config/create.klanten.php">
-                    <label>Naam:</label>
+                    <label for="Naam">Naam:</label>
                     <input type="text" name="Naam"><br>
 
-                    <label>Email:</label>
+                    <label for="Email">Email:</label>
                     <input type="text" name="Email"><br>
 
-                    <label>Telefoon:</label>
+                    <label for="Telefoon">Telefoon:</label>
                     <input type="text" name="Telefoon"><br>
 
-                    <label>Wachtwoord:</label>
-                    <input type="password" value="FakePSW" id="myInput" name="Wachtwoord"><br>
+                    <label for="Wachtwoord">Wachtwoord:</label>
+                    <input type="password" name="Wachtwoord"><br>
 
-                    <input type="submit" name="submit" value="Opslaan">
-=======
+                    <input type="submit" name="submit" value="Verzenden">
+                </form>
             </div>
         </div>
     </div>
