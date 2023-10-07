@@ -1,16 +1,6 @@
-<?php
-    require_once 'config/autoload.config.php';
-
-    try {
-        // Attempt to connect to Database class
-        //$database = new Database();
-
-        SessionManagement::setSession();
-        //SessionManagement::redirectUnauthorized();
-        
-    } catch (InvalidArgumentException $e) {
-        echo 'Error: ' . $e->getMessage();
-    }
+<?php 
+    include_once 'config/classes/session_management.class.php'; 
+    //redirectUnauthorized();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +21,8 @@
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 
     <!-- Widgets -->
-    <?php include_once 'GUIwidgets/client_navbar.gui.php'; ?>
+    <?php include_once 'GUIwidgets/client_main_navbar.gui.php'; ?>
+    <?php require_once 'config/server_messages.config.php'; ?>
 
     <!-- Table Controls -->
     <div class="container mt-5">
@@ -48,11 +39,6 @@
 
     <!-- GPS-Tracking -->
     <?php include_once 'GUIwidgets/client_navigate.gui.php'; ?>
-
-    <!-- Bootstrap JS and other scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Custom script for switching tables -->
     <script>
@@ -79,5 +65,9 @@
         });
     </script>
     <script src="js/mapbox-map.js"></script>
+    <!-- Bootstrap JS and other scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

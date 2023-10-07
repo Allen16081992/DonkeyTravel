@@ -13,8 +13,8 @@
 
 <!-- Banner Section -->
 <section class="jumbotron text-center">
-    <h1>Welcome to Donkey Travel</h1>
-    <p>Your Adventure Awaits</p>
+    <h1>Welcome bij Donkey Travel</h1>
+    <p>Het Avontuur Wacht</p>
     <!-- Add images or other content here -->
 </section>
 
@@ -27,7 +27,7 @@
 <section class="container">
     <div class="row">
         <div class="col-md-6">
-            <h2>About Us</h2>
+            <h2>Over ons</h2>
             <p>Donkey Travel is your gateway to unforgettable adventures with our donkeys and covered wagons. Discover the beauty of the countryside as you embark on a journey like no other.</p>
         </div>
         <!-- Add images or other content here -->

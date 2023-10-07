@@ -8,7 +8,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Ingelogd als: [mijn usernaam] <span class="sr-only">(current)</span></a>
+                    <?php
+                        if(isset($_SESSION['klant_id'])) {
+                            echo '<a class="nav-link">Ingelogd als:'.$_SESSION['klant_name'].'<span class="sr-only">(current)</span></a>';
+                        } else { echo '<a class="nav-link">Ingelogd als: [mijn usernaam] <span class="sr-only">(current)</span></a>'; }
+                    ?>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout.php">Uitloggen</a>

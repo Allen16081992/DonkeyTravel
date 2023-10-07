@@ -11,19 +11,23 @@
             </div>
             <div class="modal-body">
                 <form method="post" action="config/create.klanten.php">
-                    <label for="Naam">Naam:</label>
-                    <input type="text" name="Naam"><br>
-
-                    <label for="Email">Email:</label>
-                    <input type="text" name="Email"><br>
-
-                    <label for="Telefoon">Telefoon:</label>
-                    <input type="text" name="Telefoon"><br>
-
-                    <label for="Wachtwoord">Wachtwoord:</label>
-                    <input type="password" name="Wachtwoord"><br>
-
-                    <input type="submit" name="submit" value="Verzenden">
+                    <div class="form-group">
+                        <label for="Naam">Naam:</label>
+                        <input type="text" class="form-control" name="Naam"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email:</label>
+                        <input type="text" class="form-control" name="Email"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="Telefoon">Telefoon:</label>
+                        <input type="tel" class="form-control" name="Telefoon"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="Wachtwoord">Wachtwoord:</label>
+                        <input type="password" class="form-control" name="Wachtwoord"><br>
+                    </div>
+                    <input type="submit" name="submit" class="btn btn-primary mb-2" value="Verzenden">
                 </form>
             </div>
         </div>

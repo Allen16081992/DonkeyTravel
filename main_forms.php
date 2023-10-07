@@ -9,7 +9,7 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <?php include_once 'GUIwidgets/client_navbar.gui.php'; ?>
+    <?php include_once 'GUIwidgets/client_main_navbar.gui.php'; ?>
 
     <div class="container">
         <div class="row justify-content-center">
@@ -85,26 +85,27 @@
                 if (isset($_POST['CreateHerb'])) {
                     echo "
                         <h3>Herberg Aanmaken</h3>
-                        <form name='AddHerb' action='config/add_herberg.php' method='post'>
+                        <form name='AddHerb' action='config/multi_herberg.php' method='post'>
+                            <input type='hidden' name='AddHerb'>
                             <div class='form-group'>
-                                <label for='name'>Naam:</label>
-                                <input type='text' class='form-control' name='name' placeholder='Name'>
+                                <label for='Naam'>Naam:</label>
+                                <input type='text' class='form-control' name='Naam' placeholder='Name'>
                             </div>
                             <div class='form-group'>
-                                <label for='adres'>Adres:</label>
-                                <input type='text' class='form-control' name='adres' placeholder='Adres'>
+                                <label for='Adres'>Adres:</label>
+                                <input type='text' class='form-control' name='Adres' placeholder='Adres'>
                             </div>
                             <div class='form-group'>
-                                <label for='email'>Emailadres:</label>
-                                <input type='email' class='form-control' name='email' placeholder='Email'>
+                                <label for='Email'>Emailadres:</label>
+                                <input type='email' class='form-control' name='Email' placeholder='Email'>
                             </div>
                             <div class='form-group'>
-                                <label for='phone'>Mobiel telefoonnummer:</label>
-                                <input type='tel' class='form-control' name='phone' placeholder='Phone'>
+                                <label for='Telefoon'>Telefoonnummer:</label>
+                                <input type='tel' class='form-control' name='Telefoon' placeholder='Phone'>
                             </div>
                             <div class='form-group'>
-                                <label for='coordinates'>Coördinaten:</label>
-                                <input type='text' class='form-control' name='coordinates' placeholder='coordinates'>
+                                <label for='Latlon'>Coördinaten:</label>
+                                <input type='text' class='form-control' name='Latlon' placeholder='coordinates'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verzenden</button>
                         </form>
@@ -113,7 +114,9 @@
                 elseif (isset($_POST['EditHerb'])) {
                     echo "
                         <h3>Herberg Wijzigen</h3>
-                        <form name='EditHerb' action='config/multi_herberg.config.php' method='post'>
+                        <form name='EditHerb' action='config/crud_herberg.config.php' method='post'>
+                            <input type='hidden' name='EditHerb'>
+                            <input type='hidden' name='herb_id' value='<?php= $your_herb_id; ?>'>
                             <div class='form-group'>
                                 <label for='name'>Naam:</label>
                                 <input type='text' class='form-control' name='name' placeholder='Name'>
@@ -125,6 +128,10 @@
                             <div class='form-group'>
                                 <label for='email'>Emailadres:</label>
                                 <input type='email' class='form-control' name='email' placeholder='Email'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='phone'>Telefoonnummer:</label>
+                                <input type='tel' class='form-control' name='phone' placeholder='Phone'>
                             </div>
                             <div class='form-group'>
                                 <label for='coordinates'>Coördinaten:</label>
@@ -137,7 +144,9 @@
                 elseif (isset($_POST['DeleteHerb'])) {
                     echo "
                         <h3>Herberg Verwijderen</h3>
-                        <form name='DeleteHerb' action='config/multi_herberg.config.php' method='post'>
+                        <form name='DeleteHerb' action='config/crud_herberg.config.php' method='post'>
+                            <input type='hidden' name='DeleteHerb'>
+                            <input type='hidden' name='herb_id' value='<?php= $your_herb_id; ?>'>
                             <div class='form-group'>
                                 <label for='name'>Naam:</label>
                                 <input type='text' class='form-control' name='name' value='Name' readonly>

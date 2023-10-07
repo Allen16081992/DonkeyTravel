@@ -9,14 +9,15 @@
             $pdo = $db->connect();
 
             // Retrieve form data
-            $name = $_POST['name'];
-            $adres = $_POST['adres'];
-            $email = $_POST['email'];
-            $coordinates = $_POST['coordinates'];
+            $name = $_POST['Naam'];
+            $adres = $_POST['Adres'];
+            $email = $_POST['Email'];
+            $tel = $_POST['Telefoon'];
+            $coordinates = $_POST['Latlon'];
 
             // Prepare and execute the SQL query
-            $stmt = $pdo->prepare("INSERT INTO herbergen (Naam, Adres, Email, Coordinaten) VALUES (?, ?, ?, ?)");
-            $stmt->execute([$name, $adres, $email, $coordinates]);
+            $stmt = $pdo->prepare("INSERT INTO herbergen (Naam, Adres, Email, Telefoon, Coordinaten) VALUES (?, ?, ?, ?, ?)");
+            $stmt->execute([$name, $adres, $email, $tel, $coordinates]);
 
             // Optionally, you can redirect to a success page or do other actions
             $_SESSION['error'] = 'Database inquisitie gelukt.';
