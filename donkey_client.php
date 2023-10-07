@@ -1,6 +1,7 @@
 <?php 
     include_once 'config/classes/session_management.class.php'; 
     //redirectUnauthorized();
+    require_once 'config/view.herberg.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +41,10 @@
     <!-- GPS-Tracking -->
     <?php include_once 'GUIwidgets/client_navigate.gui.php'; ?>
 
+    <!-- Bootstrap JS and other scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Custom script for switching tables -->
     <script>
         $(document).ready(function(){
@@ -65,9 +70,5 @@
         });
     </script>
     <script src="js/mapbox-map.js"></script>
-    <!-- Bootstrap JS and other scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
