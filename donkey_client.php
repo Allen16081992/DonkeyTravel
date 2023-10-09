@@ -2,6 +2,7 @@
     include_once 'config/classes/session_management.class.php'; 
     //redirectUnauthorized();
     require_once 'config/view.herberg.php';
+    require_once 'config/fetchKlant.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

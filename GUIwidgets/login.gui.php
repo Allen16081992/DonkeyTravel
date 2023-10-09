@@ -19,7 +19,7 @@
                         <label for="Wachtwoord">Wachtwoord</label>
                         <input type="password" class="form-control" name="Wachtwoord" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Login</button>
                     <span>Don't have an account yet? <a href="" data-dismiss="modal" data-toggle="modal" data-target="#registrationModal">Register</a></span>
                 </form>
             </div>

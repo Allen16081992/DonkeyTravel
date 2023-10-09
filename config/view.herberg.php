@@ -14,15 +14,15 @@
                 // Select table records
                 $stmt = $this->pdo->prepare("SHOW COLUMNS FROM $table");
                 $stmt->execute();
-                $columns = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                $Hcolumns = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
                 $stmt = $this->pdo->prepare("SELECT * FROM $table");
                 $stmt->execute();
-                $records = $stmt->fetchAll();
+                $Hrecords = $stmt->fetchAll();
 
                 return [
-                    'columns' => $columns,
-                    'records' => $records,
+                    'columns' => $Hcolumns,
+                    'records' => $Hrecords,
                 ];
             } catch (PDOException $e) {
                 // Handle the exception (e.g., log the error or display a user-friendly message)

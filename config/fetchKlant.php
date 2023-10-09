@@ -31,7 +31,7 @@
         }
     }
 
-     // Create an object from our class
-     $viewFk = new fetchKlant();
-     $allInfo = $viewFk->fetchKlantInfo('klanten');
+    // Create an object from our class
+    $viewFk = new fetchKlant();
+    $allKlant = $viewFk->fetchKlantInfo('klanten');
 ?>
