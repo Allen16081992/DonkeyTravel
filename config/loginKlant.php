@@ -24,6 +24,6 @@
 
     if(isset($_POST['submit'])) {
         $Naam = $_POST['Naam'];
-        $Wachtwoord = $_POST['Wachtwoord']
+        $Wachtwoord = $_POST['Wachtwoord'];
     }
 ?>
