@@ -1,6 +1,12 @@
 <?php // Loubna Faress
+    require_once 'classes/database.class.php'; 
     class klantLogin {
         private $pdo;
+
+        public function __construct() {
+            $db = new Database();
+            $this->pdo = $db->connect();
+        }
 
         public function loginKlant() {
             try {
