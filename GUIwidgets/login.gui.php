@@ -12,12 +12,12 @@
             <div class="modal-body">
                 <form action="config/loginKlant.php" method="POST">
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
+                        <label for="Naam">Naam</label>
+                        <input type="text" class="form-control" name="Naam" required>
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <label for="Wachtwoord">Wachtwoord</label>
+                        <input type="password" class="form-control" name="Wachtwoord" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
                     <span>Don't have an account yet? <a href="" data-dismiss="modal" data-toggle="modal" data-target="#registrationModal">Register</a></span>
