@@ -1,7 +1,7 @@
 <?php // Dhr. Allen Pieter
     require_once 'classes/database.class.php';  
 
-    class viewHerbergen {
+    class viewTochten {
         private $pdo;
         
         public function __construct() {
@@ -9,20 +9,20 @@
             $this->pdo = $database->connect();
         } 
 
-        public function viewHerbergInfo($table) {
+        public function viewTochtenInfo($table) {
             try {
                 // Select table records
                 $stmt = $this->pdo->prepare("SHOW COLUMNS FROM $table");
                 $stmt->execute();
-                $Hcolumns = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                $TOcolumns = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
                 $stmt = $this->pdo->prepare("SELECT * FROM $table");
                 $stmt->execute();
-                $Hrecords = $stmt->fetchAll();
+                $TOrecords = $stmt->fetchAll();
 
                 return [
-                    'columns' => $Hcolumns,
-                    'records' => $Hrecords,
+                    'columns' => $TOcolumns,
+                    'records' => $TOrecords,
                 ];
             } catch (PDOException $e) {
                 // Handle the exception (e.g., log the error or display a user-friendly message)
@@ -32,5 +32,5 @@
     }
 
     // Create an object from our class
-    $viewHb = new viewHerbergen();
-    $allHerberg = $viewHb->viewHerbergInfo('herbergen');
+    $viewTo = new viewTochten();
+    $allTocht = $viewTo->viewTochtenInfo('tochten');

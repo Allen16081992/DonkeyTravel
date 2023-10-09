@@ -1,3 +1,17 @@
+:root {
+    --bg-color:rgba(0, 0, 0, 0.9);
+    --bg-cover: url("../img/templater-main.jpg");
+    --second-bg-color:#323946;
+    --text-color:azure;
+    --main-color:#0ef;
+
+    /* Window Error Messages style */  
+    --error-bg:rgba(255, 232, 232); --error-color: crimson;
+    --error-border:1px solid var(--error-color); 
+    --error-radius:5px; 
+    --error-font-w:bold; --error-padding: 5px 25px;
+    --error-max-w:100%; --error-marg-b:10px; --error-marg-t:-5px;
+}
 #map {
     opacity: 0;
     height: 400px;
@@ -14,4 +28,18 @@
     margin-top:0;
     padding: 10px;
     font-family: 'Open Sans', sans-serif;
+}
+.success-message {
+    background:rgb(232, 255, 233); 
+    border: 1px solid rgb(20, 220, 100); 
+    border-radius: var(--error-radius); color: rgb(20, 220, 100);
+    font-weight: var(--error-font-w); padding: var(--error-padding);
+    max-width: var(--error-max-w); margin-bottom: var(--error-marg-b); margin-top:var(--error-marg-t);
+}
+.error-message {
+    background: var(--error-bg); 
+    border: var(--error-border); 
+    border-radius: var(--error-radius); color: var(--error-color);
+    font-weight: var(--error-font-w); padding: var(--error-padding);
+    max-width: var(--error-max-w); margin-bottom: var(--error-marg-b); margin-top:var(--error-marg-t);
 }

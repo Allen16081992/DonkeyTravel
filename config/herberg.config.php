@@ -42,9 +42,6 @@
                     $stmt->execute([$herbid]);
 
                     $_SESSION['success'] = "Herberg verwijderd.";
-                } 
-                else {
-                    $_SESSION['error'] = "No Read functionality.";
                 }
     
                 // Optionally, you can redirect to a success page or do other actions
@@ -71,6 +68,8 @@
             foreach ($Fields as $field) {
                 if (empty($formData[$field])) {
                     $_SESSION['error'] = 'Please fill in all fields.';
+                    header("Location: ../donkey_client.php");
+                    exit();
                 }
             }
         }

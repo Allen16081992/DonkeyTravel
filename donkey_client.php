@@ -2,6 +2,9 @@
     include_once 'config/classes/session_management.class.php'; 
     //redirectUnauthorized();
     require_once 'config/view.herberg.php';
+    require_once 'config/view.tochten.php';
+    require_once 'config/view.trackers.php';
+    require_once 'config/fetchStatus.php';
     require_once 'config/fetchKlant.php';
 ?>
 <!DOCTYPE html>
@@ -24,7 +27,7 @@
 
     <!-- Widgets -->
     <?php include_once 'GUIwidgets/client_main_navbar.gui.php'; ?>
-    <?php require_once 'config/server_messages.config.php'; ?>
+    <?php include_once 'config/server_messages.config.php'; ?>
 
     <!-- Table Controls -->
     <div class="container mt-5">
