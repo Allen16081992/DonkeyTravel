@@ -29,17 +29,6 @@
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 
     <h1>Locatie Tracker</h1>
-    <form id="track-form" class="form-inline">
-        <div class="form-group mx-sm-4 mb-2">
-            <label for="latitude" class="sr-only">Latitude:</label>
-            <input type="text" class="form-control" id="latitude" placeholder="Breedtegraad" required>
-        </div>
-        <div class="form-group mx-sm-1 mb-2">
-            <label for="longitude" class="sr-only">Longitude:</label>
-            <input type="text" class="form-control" id="longitude" placeholder="Lengtegraad" required>
-        </div>
-        <button type="submit" class="btn btn-primary mx-sm-2 mb-2">Track</button>
-    </form>
     <div class="mx-sm-4 mb-2">
         <small id="mapHelp" class="form-text text-muted">Track een huifkar met coördinaten of stad, wijk, straat en zelfs bedrijfsnamen.</small>
     </div>
@@ -194,30 +183,8 @@
             map.addControl(new mapboxgl.NavigationControl());
         }
 
-        function valueParsing() {
-            var marker;
-            document.getElementById('track-form').addEventListener('submit', function (e) {
-                e.preventDefault();
-                var latitude = parseFloat(document.getElementById('latitude').value);
-                var longitude = parseFloat(document.getElementById('longitude').value);
-
-                if (!isNaN(latitude) && !isNaN(longitude)) {
-                    if (marker) {
-                        marker.setLngLat([longitude, latitude]);
-                    } else {
-                        marker = new mapboxgl.Marker()
-                            .setLngLat([longitude, latitude])
-                            .addTo(map);
-                    }
-
-                    map.setCenter([longitude, latitude]);
-                } else {
-                    alert('Please enter valid coordinates.');
-                }
-            });
-        }
         // Initialise Everything!!!
-        document.addEventListener("DOMContentLoaded", initializeMap, valueParsing);
+        document.addEventListener("DOMContentLoaded", initializeMap);
     </script>
 
     <!-- Bootstrap JS and other scripts -->
