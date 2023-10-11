@@ -1,6 +1,7 @@
 <?php // Khaqan Ul Haq Awan
-include_once "database.class.php";
+include_once "classes/database.class.php";
 class restaurants extends Database {
+    private $ID;
     private $Naam;
     private $Adres;
     private $Email;
@@ -37,7 +38,73 @@ class restaurants extends Database {
         $sql->execute();
     }
 
-    public function afdrukkenreservering()
+    public function readrestaurant()
+    {
+        $connection = $this->connect();
+        $sql = $connection->prepare("
+        SELECT *
+        FROM restaurants");
+
+        $sql->execute();
+
+        foreach ($sql as $restaurant)
+        {
+            echo $restaurant["ID"];
+            echo $this->Naam = $restaurant["Naam"];
+            echo $this->Adres = $restaurant["Adres"];
+            echo $this->Email = $restaurant ["Email"];
+            echo $this->Telefoon = $restaurant["Telefoon"];
+            echo $this->Coordinaten = $restaurant["Coordinaten"];
+        }
+    }
+
+    public function updaterestaurant ($ID)
+    {
+        $connection = $this->connect();
+        $Naam = $this->getNaam();
+        $Adres = $this->getAdres();
+        $Email = $this->getEmail();
+        $Telefoon = $this->getTelefoon();
+        $Coordinaten = $this->getCoordinaten();
+
+        $sql = $connection->prepare
+        ("
+        UPDATE restaurants
+        SET Naam=:Naam, Adres=:Adres, Email=:Email, Telefoon=:Telefoon, Coordinaten=:Coordinaten
+        WHERE ID=:ID");
+
+        $sql->bindParam(":ID", $ID);
+        $sql->bindParam(":Naam", $Naam);
+        $sql->bindParam(":Adres", $Adres);
+        $sql->bindParam(":Email", $Email);
+        $sql->bindParam(":Telefoon", $Telefoon);
+        $sql->bindParam(":Coordinaten", $Coordinaten);
+        $sql->execute();
+
+    }
+
+    public function searchrestaurant($ID)
+    {
+        $connection = $this->connect();
+        $sql = $connection->prepare(
+            "SELECT ID, Naam, Adres, Email, Telefoon, Coordinaten
+            FROM restaurants
+            WHERE ID =:ID"
+        );
+        $sql->bindParam(":ID", $ID);
+        $sql->execute();
+
+        foreach ($sql as $restaurant)
+        {
+            $this->Naam = $restaurant["Naam"];
+            $this->Adres = $restaurant["Adres"];
+            $this->Email = $restaurant["Email"];
+            $this->Telefoon = $restaurant["Telefoon"];
+            $this->Coordinaten = $restaurant["Coordinaten"];
+        }
+    }
+
+    public function afdrukkenrestaurant()
     {
         echo $this->getNaam();
         echo "<br/>";
@@ -50,6 +117,18 @@ class restaurants extends Database {
         echo $this->getCoordinaten();
 
     }
+
+    public function getID()
+    {
+        return $this->ID;
+    }
+
+    public function setID($ID): void
+    {
+        $this->ID = $ID;
+    }
+
+
 
     public function getNaam()
     {
