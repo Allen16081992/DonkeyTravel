@@ -24,7 +24,7 @@
                 
                 if (isset($_POST['Editklant'])) {
                 // Prepare and execute the SQL query
-                $stmt = $this->pdo->prepare("UPDATE klant SET Naam = ?, Adres = ?, Email = ?, Telefoon = ?, Coordinaten = ? WHERE ID = ?;");
+                $stmt = $this->pdo->prepare("UPDATE klanten SET Naam = ?, Adres = ?, Email = ?, Telefoon = ?, Coordinaten = ? WHERE ID = ?;");
                 $stmt->execute([$name, $adres, $email, $tel, $coordinates, $klantid]);
 
                 $_SESSION['success'] = "klant is bijgewerkt.";
@@ -64,7 +64,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             $db = new Database();
-            $multiProcessor = new klant($db);
+            $multiProcessor = new updateKlant($db);
             $multiProcessor->processForm($_POST);
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
