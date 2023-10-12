@@ -15,7 +15,7 @@
 
         public function fetchInfo($rowID) {
             try {
-                $stmt = $this->pdo->prepare("SELECT * FROM klanten WHERE ID = :rowID");
+                $stmt = $this->pdo->prepare("SELECT * FROM $table WHERE ID = :rowID");
                 $stmt->bindParam(':rowID', $rowID, PDO::PARAM_INT);
                 $stmt->execute();
     
@@ -31,5 +31,4 @@
 
     // Example usage:
     $viewRowInfo = new viewRowInfo();
-    $rowID = 123; // Replace with the actual rowID you want to fetch
-    $data = $viewRowInfo->fetchInfo($rowID);
+    $data = $viewRowInfo->fetchInfo($table, $rowID);

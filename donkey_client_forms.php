@@ -200,6 +200,13 @@
                     ";
                 }
                 elseif (isset($_POST['EditRest'])) {
+                    // Create an instance of the viewRowInfo class
+                    require_once 'config/view.RowInfo.php'; 
+                    $viewRowInfo = new viewRowInfo();
+                
+                    $rowID = $_POST['row_id'];
+                    $rowData = $viewRowInfo->fetchInfo($rowID);
+
                     echo "
                         <h3>Restaurant Wijzigen</h3>
                         <form action='#' method='post'>
@@ -229,29 +236,40 @@
                     ";
                 }
                 elseif (isset($_POST['DeleteRest'])) {
+                    // Create an instance of the viewRowInfo class
+                    require_once 'config/view.RowInfo.php'; 
+                    $viewRowInfo = new viewRowInfo();
+                
+                    $rowID = $_POST['row_id'];
+                    $rowData = $viewRowInfo->fetchInfo($rowID);
+
                     echo "
                         <h3>Restaurant Verwijderen</h3>
                         <form action='#' method='post'>
                             <input type='hidden' name='DeleteRest'>
                             <div class='form-group'>
-                                <label for='name'>Naam:</label>
-                                <input type='text' class='form-control' name='name' value='Name' readonly>
+                                <label for='ID'>ID:</label>
+                                <input type='text' class='form-control' name='ID' value='{$rowData['ID']}' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='adres'>Adres:</label>
-                                <input type='text' class='form-control' name='adres' value='Adres' readonly>
+                                <label for='name'>Naam:</label>
+                                <input type='text' class='form-control' name='Naam' value='{$rowData['Naam']}' readonly>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Adres'>Adres:</label>
+                                <input type='text' class='form-control' name='Adres' value='{$rowData['Adres']}' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='email'>Emailadres:</label>
-                                <input type='email' class='form-control' name='email' value='Email' readonly>
+                                <input type='email' class='form-control' name='Email' value='{$rowData['Email']}' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='phone'>Mobiel telefoonnummer:</label>
-                                <input type='tel' class='form-control' name='phone' value='Phone' readonly>
+                                <label for='Telefoon'>Telefoonnummer:</label>
+                                <input type='tel' class='form-control' name='Telefoon' value='{$rowData['Telefoon']}' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='coordinates'>Coördinaten:</label>
-                                <input type='text' class='form-control' name='coordinates' value='coordinates' readonly>
+                                <label for='Coordinaten'>Coördinaten:</label>
+                                <input type='text' class='form-control' name='Coordinaten' value='{$rowData['Coordinaten']}' readonly>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verwijderen</button>
                         </form>
@@ -305,6 +323,10 @@
                         <form action='#' method='post'>
                             <input type='hidden' name='DeleteTocht'>
                             <div class='form-group'>
+                                <label for='ID'>ID:</label>
+                                <input type='text' class='form-control' name='ID' value='{$rowData['ID']}' readonly>
+                            </div>
+                            <div class='form-group'>
                                 <label for='Omschrijving'>Example textarea</label>
                                 <textarea class='form-control' name='Omschrijving' rows='2'></textarea>
                             </div>
@@ -353,26 +375,27 @@
                     echo "
                         <h3>Tracker Wijzigen</h3>
                         <form action='#' method='post'>
+                            <input type='hidden' name='id' value='".(isset($rowData['ID']) ? $rowID : $_SESSION["klant_id"])."'>
                             <input type='hidden' name='EditTrack'>
                             <div class='form-group'>
                                 <label for='startDate'>StartDatum:</label>
-                                <input type='date' class='form-control' name='startDate' value='startDate'>
+                                <input type='date' class='form-control' name='startDate' value='{$rowData['startDate']}'>
                             </div>
                             <div class='form-group'>
-                                <label for='pincode'>PINCode:</label>
-                                <input type='text' class='form-control' name='pincode' value='pincode'>
+                                <label for='Pincode'>PINCode:</label>
+                                <input type='text' class='form-control' name='Pincode' value='{$rowData['Pincode']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='TochtenID'>Tochten ID:</label>
-                                <input type='text' class='form-control' name='TochtenID' value='TochtenID'>
+                                <input type='text' class='form-control' name='TochtenID' value='{$rowData['TochtenID']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='KlantenID'>Klanten ID:</label>
-                                <input type='text' class='form-control' name='KlantenID' value='KlantenID'>
+                                <input type='text' class='form-control' name='KlantenID' value='{$rowData['KlantenID']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='StatussenID'>Statussen ID:</label>
-                                <input type='text' class='form-control' name='StatussenID' value='StatussenID'>
+                                <input type='text' class='form-control' name='StatussenID' value='{$rowData['StatussenID']}'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verwijderen</button>
                         </form>
@@ -384,24 +407,28 @@
                         <form action='#' method='post'>
                             <input type='hidden' name='DeleteTrack'>
                             <div class='form-group'>
-                                <label for='startDate'>StartDatum:</label>
-                                <input type='date' class='form-control' name='startDate' value='startDate' readonly>
+                                <label for='ID'>ID:</label>
+                                <input type='text' class='form-control' name='ID' value='{$rowData['ID']}' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='pincode'>PINCode:</label>
-                                <input type='text' class='form-control' name='pincode' value='pincode' readonly>
+                                <label for='startDate'>StartDatum:</label>
+                                <input type='date' class='form-control' name='startDate' value='{$rowData['startDate']}' readonly>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Pincode'>PINCode:</label>
+                                <input type='text' class='form-control' name='Pincode' value='{$rowData['Pincode']}' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='TochtenID'>Tochten ID:</label>
-                                <input type='text' class='form-control' name='TochtenID' value='TochtenID' readonly>
+                                <input type='text' class='form-control' name='TochtenID' value='{$rowData['TochtenID']}' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='KlantenID'>Klanten ID:</label>
-                                <input type='text' class='form-control' name='KlantenID' value='KlantenID' readonly>
+                                <input type='text' class='form-control' name='KlantenID' value='{$rowData['KlantenID']}' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='StatussenID'>Statussen ID:</label>
-                                <input type='text' class='form-control' name='StatussenID' value='StatussenID' readonly>
+                                <input type='text' class='form-control' name='StatussenID' value='{$rowData['StatussenID']}' readonly>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verwijderen</button>
                         </form>
@@ -411,7 +438,7 @@
                     // Create an instance of the viewRowInfo class
                     require_once 'config/view.RowInfo.php'; 
                     $viewRowInfo = new viewRowInfo();
-                
+                    
                     $rowID = $_POST['row_id'];
                     $rowData = $viewRowInfo->fetchInfo($rowID);
 
@@ -422,19 +449,19 @@
                             <input type='hidden' name='EditAccount'>
                             <div class='form-group'>
                                 <label for='Naam'>Naam:</label>
-                                <input type='text' class='form-control' name='Naam' value='{$rowData['Naam']}'>
+                                <input type='text' class='form-control' name='Naam' placeholder='{$rowData['Naam']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='Email'>Emailadres:</label>
-                                <input type='email' class='form-control' name='Email' value='{$rowData['Email']}'>
+                                <input type='email' class='form-control' name='Email' placeholder='{$rowData['Email']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='Telefoon'>Telefoonnummer:</label>
-                                <input type='tel' class='form-control' name='Telefoon' value='{$rowData['Telefoon']}'>
+                                <input type='tel' class='form-control' name='Telefoon' placeholder='{$rowData['Telefoon']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='Wachtwoord'>Wachtwoord:</label>
-                                <input type='password' class='form-control' name='Wachtwoord' placeholder='{$rowData['Wachtwoord']}'>
+                                <input type='password' class='form-control' name='Wachtwoord' value='{$rowData['Wachtwoord']}'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verwijderen</button>
                         </form>

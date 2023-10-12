@@ -33,5 +33,5 @@ class viewRestaurants {
 }
 
 // Create an object from our class
-$viewR = new viewRestaurant();
-$allRestaurant = $viewR->viewRestaurantInfo('restaurants');
+$viewR = new viewRestaurants();
+$allRest = $viewR->viewRestaurantInfo('restaurants');
