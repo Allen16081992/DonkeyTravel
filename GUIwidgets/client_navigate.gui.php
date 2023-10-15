@@ -3,17 +3,6 @@
         <div class="mb-2">
             <button id="showMapBtn" type="button" class="btn btn-primary mx-sm-2 mb-2">Kaart</button>
         </div>
-        <form id="track-form" class="form-inline">
-            <div class="form-group mx-sm-4 mb-2">
-                <label for="latitude" class="sr-only">Latitude:</label>
-                <input type="text" class="form-control" id="latitude" placeholder="Breedtegraad" required>
-            </div>
-            <div class="form-group mx-sm-1 mb-2">
-                <label for="longitude" class="sr-only">Longitude:</label>
-                <input type="text" class="form-control" id="longitude" placeholder="Lengtegraad" required>
-            </div>
-            <button type="submit" class="btn btn-primary mx-sm-2 mb-2">Track</button>
-        </form>
         <div class="mx-sm-4 mb-2">
             <small id="mapHelp" class="form-text text-muted">Track een huifkar met coördinaten of stad, wijk, straat en zelfs bedrijfsnamen.</small>
         </div>

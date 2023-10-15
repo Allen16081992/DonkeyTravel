@@ -9,7 +9,10 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <?php include_once 'GUIwidgets/client_main_navbar.gui.php'; ?>
+    <?php 
+        include_once 'GUIwidgets/client_main_navbar.gui.php'; 
+        require_once 'config/view.RowInfo.php'; 
+    ?>
 
     <div class="container">
         <div class="row justify-content-center">
@@ -119,26 +122,26 @@
                         <h3>Herberg Wijzigen</h3>
                         <form name='EditHerb' action='config/crud_herberg.config.php' method='post'>
                             <input type='hidden' name='EditHerb'>
-                            <input type='hidden' name='herb_id' value='<?php= $your_herb_id; ?>'>
+                            <input type='hidden' name='herb_id' value='{$data['ID']}'>
                             <div class='form-group'>
                                 <label for='name'>Naam:</label>
-                                <input type='text' class='form-control' name='name' placeholder='Name'>
+                                <input type='text' class='form-control' name='name' placeholder='{$data['Naam']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='adres'>Adres:</label>
-                                <input type='text' class='form-control' name='adres' placeholder='Adres'>
+                                <input type='text' class='form-control' name='adres' placeholder='{$data['Adres']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='email'>Emailadres:</label>
-                                <input type='email' class='form-control' name='email' placeholder='Email'>
+                                <input type='email' class='form-control' name='email' placeholder='{$data['Email']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='phone'>Telefoonnummer:</label>
-                                <input type='tel' class='form-control' name='phone' placeholder='Phone'>
+                                <input type='tel' class='form-control' name='phone' placeholder='{$data['Telefoon']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='coordinates'>Coördinaten:</label>
-                                <input type='text' class='form-control' name='coordinates' placeholder='coordinates'>
+                                <input type='text' class='form-control' name='coordinates' placeholder='{$data['Coordinaten']}'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verzenden</button>
                         </form>
@@ -149,27 +152,83 @@
                         <h3>Herberg Verwijderen</h3>
                         <form name='DeleteHerb' action='config/crud_herberg.config.php' method='post'>
                             <input type='hidden' name='DeleteHerb'>
-                            <input type='hidden' name='herb_id' value='<?php= $your_herb_id; ?>'>
+                            <input type='hidden' name='herb_id' value='{$data['ID']}'>
                             <div class='form-group'>
-                                <label for='name'>Naam:</label>
-                                <input type='text' class='form-control' name='name' value='Name' readonly>
+                                <label for='Naam'>Naam:</label>
+                                <input type='text' class='form-control' name='Naam' value='{$data['Naam']}' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='adres'>Adres:</label>
-                                <input type='text' class='form-control' name='adres' value='Adres' readonly>
+                                <label for='Adres'>Adres:</label>
+                                <input type='text' class='form-control' name='Adres' value='{$data['Adres']}' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='email'>Emailadres:</label>
-                                <input type='email' class='form-control' name='email' value='Email' readonly>
+                                <label for='Email'>Emailadres:</label>
+                                <input type='email' class='form-control' name='Email' value='{$data['Email']}' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='coordinates'>Coördinaten:</label>
-                                <input type='text' class='form-control' name='coordinates' value='coordinates' readonly>
+                                <label for='Telefoon'>Telefoonnummer:</label>
+                                <input type='tel' class='form-control' name='Telefoon' value='{$data['Telefoon']}' readonly>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Coordinaten'>Coördinaten:</label>
+                                <input type='text' class='form-control' name='Coordinaten' value='{$data['Coordinaten']}' readonly>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verzenden</button>
                         </form>
                     ";
                 }
+                if (isset($_POST['EditKlant'])) {
+                    echo "
+                        <h3>Account Wijzigen</h3>
+                        <form action='#' method='post'>
+                            <input type='hidden' name='EditKlant'>
+                            <input type='hidden' name='klant_id' value='".(isset($data['ID']) ? $data['ID'] : $_SESSION["klant_id"])."'>
+                            <div class='form-group'>
+                                <label for='Naam'>Naam:</label>
+                                <input type='text' class='form-control' name='Naam' placeholder='{$data['Naam']}'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Email'>Emailadres:</label>
+                                <input type='email' class='form-control' name='Email' placeholder='{$data['Email']}'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Telefoon'>Telefoonnummer:</label>
+                                <input type='tel' class='form-control' name='Telefoon' placeholder='{$data['Telefoon']}'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Wachtwoord'>Wachtwoord:</label>
+                                <input type='password' class='form-control' name='Wachtwoord' value='{$data['Wachtwoord']}'>
+                            </div>
+                            <button type='submit' class='btn btn-primary'>Wijzigen</button>
+                        </form>
+                    ";
+                }
+                elseif (isset($_POST['DeleteKlant'])) {        
+                    echo "
+                        <h3>Account Verwijderen</h3>
+                        <form action='#' method='post'>
+                            <input type='hidden' name='DeleteKlant'>
+                            <input type='hidden' name='klant_id' value='".(isset($data['ID']) ? $data['ID'] : $_SESSION["klant_id"])."'>
+                            <div class='form-group'>
+                                <label for='Naam'>Naam:</label>
+                                <input type='text' class='form-control' name='Naam' placeholder='{$data['Naam']}' readonly>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Email'>Emailadres:</label>
+                                <input type='email' class='form-control' name='Email' placeholder='{$data['Email']}' readonly>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Telefoon'>Telefoonnummer:</label>
+                                <input type='tel' class='form-control' name='Telefoon' placeholder='{$data['Telefoon']}' readonly>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Wachtwoord'>Wachtwoord:</label>
+                                <input type='password' class='form-control' name='Wachtwoord' value='{$data['Wachtwoord']}' readonly>
+                            </div>
+                            <button type='submit' class='btn btn-primary'>Verwijderen</button>
+                        </form>
+                    ";
+                } 
                 if (isset($_POST['CreateRest'])) {
                     echo "
                         <h3>Restaurant Aanmaken</h3>
@@ -199,79 +258,147 @@
                         </form>
                     ";
                 }
-                elseif (isset($_POST['EditRest'])) {
-                    // Create an instance of the viewRowInfo class
-                    require_once 'config/view.RowInfo.php'; 
-                    $viewRowInfo = new viewRowInfo();
-                
-                    $rowID = $_POST['row_id'];
-                    $rowData = $viewRowInfo->fetchInfo($rowID);
-
+                elseif (isset($_POST['EditRest'])) {        
                     echo "
                         <h3>Restaurant Wijzigen</h3>
                         <form action='#' method='post'>
                             <input type='hidden' name='EditRest'>
+                            <input type='hidden' name='rest_id' value='{$data['ID']}'>
                             <div class='form-group'>
-                                <label for='name'>Naam:</label>
-                                <input type='text' class='form-control' name='name' placeholder='Name'>
+                                <label for='Naam'>Naam:</label>
+                                <input type='text' class='form-control' name='Naam' value='{$data['Naam']}'>
                             </div>
                             <div class='form-group'>
-                                <label for='adres'>Adres:</label>
-                                <input type='text' class='form-control' name='adres' placeholder='Adres'>
+                                <label for='Adres'>Adres:</label>
+                                <input type='text' class='form-control' name='Adres' value='{$data['Adres']}'>
                             </div>
                             <div class='form-group'>
-                                <label for='email'>Emailadres:</label>
-                                <input type='email' class='form-control' name='email' placeholder='Email'>
+                                <label for='Email'>Emailadres:</label>
+                                <input type='email' class='form-control' name='Email' value='{$data['Email']}'>
                             </div>
                             <div class='form-group'>
-                                <label for='phone'>Mobiel telefoonnummer:</label>
-                                <input type='tel' class='form-control' name='phone' placeholder='Phone'>
+                                <label for='Telefoon'>Telefoonnummer:</label>
+                                <input type='tel' class='form-control' name='Telefoon' value='{$data['Telefoon']}'>
                             </div>
                             <div class='form-group'>
-                                <label for='coordinates'>Coördinaten:</label>
-                                <input type='text' class='form-control' name='coordinates' placeholder='coordinates'>
+                                <label for='Coordinaten'>Coördinaten:</label>
+                                <input type='text' class='form-control' name='Coordinaten' value='{$data['Coordinaten']}'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Wijzigen</button>
                         </form>
                     ";
                 }
                 elseif (isset($_POST['DeleteRest'])) {
-                    // Create an instance of the viewRowInfo class
-                    require_once 'config/view.RowInfo.php'; 
-                    $viewRowInfo = new viewRowInfo();
-                
-                    $rowID = $_POST['row_id'];
-                    $rowData = $viewRowInfo->fetchInfo($rowID);
-
                     echo "
                         <h3>Restaurant Verwijderen</h3>
                         <form action='#' method='post'>
                             <input type='hidden' name='DeleteRest'>
+                            <input type='hidden' name='rest_id' value='{$data['ID']}'>
                             <div class='form-group'>
-                                <label for='ID'>ID:</label>
-                                <input type='text' class='form-control' name='ID' value='{$rowData['ID']}' readonly>
-                            </div>
-                            <div class='form-group'>
-                                <label for='name'>Naam:</label>
-                                <input type='text' class='form-control' name='Naam' value='{$rowData['Naam']}' readonly>
+                                <label for='Naam'>Naam:</label>
+                                <input type='text' class='form-control' name='Naam' value='{$data['Naam']}' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='Adres'>Adres:</label>
-                                <input type='text' class='form-control' name='Adres' value='{$rowData['Adres']}' readonly>
+                                <input type='text' class='form-control' name='Adres' value='{$data['Adres']}' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='email'>Emailadres:</label>
-                                <input type='email' class='form-control' name='Email' value='{$rowData['Email']}' readonly>
+                                <label for='Email'>Emailadres:</label>
+                                <input type='email' class='form-control' name='Email' value='{$data['Email']}' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='Telefoon'>Telefoonnummer:</label>
-                                <input type='tel' class='form-control' name='Telefoon' value='{$rowData['Telefoon']}' readonly>
+                                <input type='tel' class='form-control' name='Telefoon' value='{$data['Telefoon']}' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='Coordinaten'>Coördinaten:</label>
-                                <input type='text' class='form-control' name='Coordinaten' value='{$rowData['Coordinaten']}' readonly>
+                                <input type='text' class='form-control' name='Coordinaten' value='{$data['Coordinaten']}' readonly>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verwijderen</button>
+                        </form>
+                    ";
+                }
+                if (isset($_POST['CreateStat'])) {
+                    echo "
+                        <h3>Status Aanmaken</h3>
+                        <form action='#' method='post'>
+                            <input type='hidden' name='CreateStat'>
+                            <div class='form-group'>
+                                <label for='Statuscode'>Statuscode:</label>
+                                <input type='tel' class='form-control' name='Statuscode' placeholder='Statuscode'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Status'>Status:</label>
+                                <input type='text' class='form-control' name='Status' placeholder='Offerte'>
+                            </div>
+                            <div class='form-group'>
+                                <input type='checkbox' name='Verwijderbaar'>
+                                <label for='Verwijderbaar'>Verwijderbaar:</label>
+                            </div>
+                            <div class='form-group'>
+                                <input type='checkbox' name='PIN'>
+                                <label for='PIN'>PIN Toekennen:</label>
+                            </div>
+                            <button type='submit' class='btn btn-primary'>Bewaren</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
+                        </form>
+                    ";
+                }
+                elseif (isset($_POST['EditStat'])) {        
+                    echo "
+                        <h3>Status Wijzigen</h3>
+                        <form action='#' method='post'>
+                            <input type='hidden' name='EditStat'>
+                            <input type='hidden' name='status_id' value='{$data['ID']}'>
+                            <div class='form-group'>
+                                <label for='Statuscode'>Statuscode:</label>
+                                <input type='tel' class='form-control' name='Statuscode' value='{$data['StatusCode']}'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Status'>Status:</label>
+                                <input type='text' class='form-control' name='Status' value='{$data['Status']}'>
+                            </div>
+                            <div class='form-group'>
+                                <input type='checkbox' name='Verwijderbaar'>
+                                <label for='Verwijderbaar'>Verwijderbaar</label>
+                            </div>
+                            <div class='form-group'>
+                                <input type='checkbox' name='PIN'>
+                                <label for='PIN'>PIN Toekennen</label>
+                            </div>
+                            <button type='submit' class='btn btn-primary'>Wijzigen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
+                        </form>
+                    ";
+                }
+                elseif (isset($_POST['DeleteStat'])) {
+                    echo "
+                        <h3>Status Verwijderen</h3>
+                        <form action='#' method='post'>
+                            <input type='hidden' name='DeleteStat'>
+                            <input type='hidden' name='status_id' value='{$data['ID']}'>
+                            <div class='form-group'>
+                                <label for='Statuscode'>Statuscode:</label>
+                                <input type='tel' class='form-control' name='Statuscode' value='{$data['StatusCode']}' readonly>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Status'>Status:</label>
+                                <input type='text' class='form-control' name='Status' value='{$data['Status']}' readonly>
+                            </div>
+                            <div class='form-group'>
+                                <input type='hidden' name='Verwijderbaar'> 
+                                <label for='Verwijderbaar'>Verwijderbaar:</label>";
+                                if (isset($data['Verwijderbaar'])) { echo ' <strong>Ja</strong>'; } else { echo ' <strong>Nee</strong>'; };
+                        echo"
+                            </div>
+                            <div class='form-group'>
+                                <input type='hidden' name='PIN'>
+                                <label for='PIN'>PIN Toekennen:</label>";
+                        if (isset($data['Verwijderbaar'])) { echo ' <strong>Ja</strong>'; } else { echo ' <strong>Nee</strong>'; };
+                        echo"
+                            </div>
+                            <button type='submit' class='btn btn-primary'>Verwijderen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
@@ -298,20 +425,21 @@
                 }
                 elseif (isset($_POST['EditTocht'])) {
                     echo "
-                        <h3>Tracker Invoeren</h3>
+                        <h3>Tochten Wijzigen</h3>
                         <form action='#' method='post'>
                             <input type='hidden' name='EditTocht'>
+                            <input type='hidden' name='tocht_id' value='{$data['ID']}'>
                             <div class='form-group'>
                                 <label for='Omschrijving'>Example textarea</label>
-                                <textarea class='form-control' name='Omschrijving' rows='2'></textarea>
+                                <textarea class='form-control' name='Omschrijving' rows='2'>{$data['Omschrijving']}</textarea>
                             </div>
                             <div class='form-group'>
                                 <label for='Route'>Route:</label>
-                                <input type='text' class='form-control' name='Route' placeholder='Route'>
+                                <input type='text' class='form-control' name='Route' value='{$data['Route']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='AantalDagen'>AantalDagen:</label>
-                                <input type='text' class='form-control' name='AantalDagen' placeholder='AantalDagen'>
+                                <input type='text' class='form-control' name='AantalDagen' value='{$data['AantalDagen']}'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Wijzigen</button>
                         </form>
@@ -319,24 +447,21 @@
                 }
                 elseif (isset($_POST['DeleteTocht'])) {
                     echo "
-                        <h3>Tracker Invoeren</h3>
+                        <h3>Tochten Verwijderen</h3>
                         <form action='#' method='post'>
                             <input type='hidden' name='DeleteTocht'>
-                            <div class='form-group'>
-                                <label for='ID'>ID:</label>
-                                <input type='text' class='form-control' name='ID' value='{$rowData['ID']}' readonly>
-                            </div>
+                            <input type='hidden' name='tocht_id' value='{$data['ID']}'>
                             <div class='form-group'>
                                 <label for='Omschrijving'>Example textarea</label>
-                                <textarea class='form-control' name='Omschrijving' rows='2'></textarea>
+                                <textarea class='form-control' name='Omschrijving' rows='2' disabled>{$data['Omschrijving']}</textarea>
                             </div>
                             <div class='form-group'>
                                 <label for='Route'>Route:</label>
-                                <input type='text' class='form-control' name='Route' placeholder='Route'>
+                                <input type='text' class='form-control' name='Route' value='{$data['Route']}' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='AantalDagen'>AantalDagen:</label>
-                                <input type='text' class='form-control' name='AantalDagen' placeholder='AantalDagen'>
+                                <input type='text' class='form-control' name='AantalDagen' value='{$data['AantalDagen']}' readonly>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verwijderen</button>
                         </form>
@@ -375,29 +500,25 @@
                     echo "
                         <h3>Tracker Wijzigen</h3>
                         <form action='#' method='post'>
-                            <input type='hidden' name='id' value='".(isset($rowData['ID']) ? $rowID : $_SESSION["klant_id"])."'>
                             <input type='hidden' name='EditTrack'>
+                            <input type='hidden' name='track_id' value='{$data['ID']}'>
                             <div class='form-group'>
-                                <label for='startDate'>StartDatum:</label>
-                                <input type='date' class='form-control' name='startDate' value='{$rowData['startDate']}'>
+                                <label for='Pincode'>Pincode:</label>
+                                <input type='tel' class='form-control' name='Pincode' value='{$data['PINCode']}'>
                             </div>
                             <div class='form-group'>
-                                <label for='Pincode'>PINCode:</label>
-                                <input type='text' class='form-control' name='Pincode' value='{$rowData['Pincode']}'>
+                                <label for='Breedtegraad'>Breedtegraad:</label>
+                                <input type='text' class='form-control' name='Breedtegraad' value='{$data['Lat']}'>
                             </div>
                             <div class='form-group'>
-                                <label for='TochtenID'>Tochten ID:</label>
-                                <input type='text' class='form-control' name='TochtenID' value='{$rowData['TochtenID']}'>
+                                <label for='Lengtegraad'>Lengtegraad:</label>
+                                <input type='text' class='form-control' name='Lengtegraad' value='{$data['Lon']}'>
                             </div>
                             <div class='form-group'>
-                                <label for='KlantenID'>Klanten ID:</label>
-                                <input type='text' class='form-control' name='KlantenID' value='{$rowData['KlantenID']}'>
+                                <label for='Tijd'>Tijd:</label>
+                                <input type='text' class='form-control' name='Tijd' value='{$data['Time']}'>
                             </div>
-                            <div class='form-group'>
-                                <label for='StatussenID'>Statussen ID:</label>
-                                <input type='text' class='form-control' name='StatussenID' value='{$rowData['StatussenID']}'>
-                            </div>
-                            <button type='submit' class='btn btn-primary'>Verwijderen</button>
+                            <button type='submit' class='btn btn-primary'>Wijzigen</button>
                         </form>
                     ";
                 }
@@ -406,99 +527,27 @@
                         <h3>Tracker Verwijderen</h3>
                         <form action='#' method='post'>
                             <input type='hidden' name='DeleteTrack'>
+                            <input type='hidden' name='track_id' value='{$data['ID']}'>
                             <div class='form-group'>
-                                <label for='ID'>ID:</label>
-                                <input type='text' class='form-control' name='ID' value='{$rowData['ID']}' readonly>
+                                <label for='Pincode'>Pincode:</label>
+                                <input type='tel' class='form-control' name='Pincode' value='{$data['PINCode']}' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='startDate'>StartDatum:</label>
-                                <input type='date' class='form-control' name='startDate' value='{$rowData['startDate']}' readonly>
+                                <label for='Breedtegraad'>Breedtegraad:</label>
+                                <input type='text' class='form-control' name='Breedtegraad' value='{$data['Lat']}' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='Pincode'>PINCode:</label>
-                                <input type='text' class='form-control' name='Pincode' value='{$rowData['Pincode']}' readonly>
+                                <label for='Lengtegraad'>Lengtegraad:</label>
+                                <input type='text' class='form-control' name='Lengtegraad' value='{$data['Lon']}' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='TochtenID'>Tochten ID:</label>
-                                <input type='text' class='form-control' name='TochtenID' value='{$rowData['TochtenID']}' readonly>
-                            </div>
-                            <div class='form-group'>
-                                <label for='KlantenID'>Klanten ID:</label>
-                                <input type='text' class='form-control' name='KlantenID' value='{$rowData['KlantenID']}' readonly>
-                            </div>
-                            <div class='form-group'>
-                                <label for='StatussenID'>Statussen ID:</label>
-                                <input type='text' class='form-control' name='StatussenID' value='{$rowData['StatussenID']}' readonly>
+                                <label for='Tijd'>Tijd:</label>
+                                <input type='text' class='form-control' name='Tijd' value='{$data['Time']}' readonly>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verwijderen</button>
                         </form>
                     ";
                 }
-                if (isset($_POST['EditAccount'])) {
-                    // Create an instance of the viewRowInfo class
-                    require_once 'config/view.RowInfo.php'; 
-                    $viewRowInfo = new viewRowInfo();
-                    
-                    $rowID = $_POST['row_id'];
-                    $rowData = $viewRowInfo->fetchInfo($rowID);
-
-                    echo "
-                        <h3>Account Wijzigen</h3>
-                        <form action='#' method='post'>
-                            <input type='hidden' name='id' value='".(isset($rowData['ID']) ? $rowID : $_SESSION["klant_id"])."'>
-                            <input type='hidden' name='EditAccount'>
-                            <div class='form-group'>
-                                <label for='Naam'>Naam:</label>
-                                <input type='text' class='form-control' name='Naam' placeholder='{$rowData['Naam']}'>
-                            </div>
-                            <div class='form-group'>
-                                <label for='Email'>Emailadres:</label>
-                                <input type='email' class='form-control' name='Email' placeholder='{$rowData['Email']}'>
-                            </div>
-                            <div class='form-group'>
-                                <label for='Telefoon'>Telefoonnummer:</label>
-                                <input type='tel' class='form-control' name='Telefoon' placeholder='{$rowData['Telefoon']}'>
-                            </div>
-                            <div class='form-group'>
-                                <label for='Wachtwoord'>Wachtwoord:</label>
-                                <input type='password' class='form-control' name='Wachtwoord' value='{$rowData['Wachtwoord']}'>
-                            </div>
-                            <button type='submit' class='btn btn-primary'>Verwijderen</button>
-                        </form>
-                    ";
-                }
-                elseif (isset($_POST['DeleteAccount'])) {
-                    // Create an instance of the viewRowInfo class
-                    require_once 'config/view.RowInfo.php'; 
-                    $viewRowInfo = new viewRowInfo();
-                
-                    $rowID = $_POST['row_id'];
-                    $rowData = $viewRowInfo->fetchInfo($rowID);
-                
-                    echo "
-                        <h3>Account Verwijderen</h3>
-                        <form action='#' method='post'>
-                            <input type='hidden' name='DeleteAccount'>
-                            <div class='form-group'>
-                                <label for='ID'>ID:</label>
-                                <input type='text' class='form-control' name='ID' value='{$rowData['ID']}' readonly>
-                            </div>
-                            <div class='form-group'>
-                                <label for='name'>Naam:</label>
-                                <input type='text' class='form-control' name='name' value='{$rowData['Naam']}' readonly>
-                            </div>
-                            <div class='form-group'>
-                                <label for='email'>Emailadres:</label>
-                                <input type='email' class='form-control' name='email' value='{$rowData['Email']}' readonly>
-                            </div>
-                            <div class='form-group'>
-                                <label for='phone'>Telefoonnummer:</label>
-                                <input type='tel' class='form-control' name='phone' value='{$rowData['Telefoon']}' readonly>
-                            </div>
-                            <button type='submit' class='btn btn-primary'>Verwijderen</button>
-                        </form>
-                    ";
-                } 
             ?>
             </div>
         </div>

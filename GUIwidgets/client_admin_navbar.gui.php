@@ -1,14 +1,14 @@
 <!-- Buttons for switching tables -->
 <div class="btn-group mb-3" role="group" aria-label="Table Selection">
     <button type="button" class="btn btn-primary" data-toggle="table" data-target="#boekingTable">Boekingen</button>
-    <button type="button" class="btn btn-primary" data-toggle="table" data-target="#herbergTable">Herbergen</button>
-    <button type="button" class="btn btn-primary" data-toggle="table" data-target="#klantTable">Klanten</button>
+    <button type="button" class="btn btn-info" data-toggle="table" data-target="#herbergTable">Herbergen</button>
+    <button type="button" class="btn btn-info" data-toggle="table" data-target="#klantTable">Klanten</button>
     <button type="button" class="btn btn-primary" data-toggle="table" data-target="#overnachtTable">Overnachting</button>
     <button type="button" class="btn btn-primary" data-toggle="table" data-target="#pauzeTable">Pauzeplaats</button>
-    <button type="button" class="btn btn-primary" data-toggle="table" data-target="#restaurantsTable">Restaurants</button>
-    <button type="button" class="btn btn-primary" data-toggle="table" data-target="#statusTable">Statussen</button>
-    <button type="button" class="btn btn-primary" data-toggle="table" data-target="#tochtTable">Tochten</button>
-    <button type="button" class="btn btn-primary" data-toggle="table" data-target="#trackersTable">Trackers</button>
+    <button type="button" class="btn btn-info" data-toggle="table" data-target="#restaurantsTable">Restaurants</button>
+    <button type="button" class="btn btn-info" data-toggle="table" data-target="#statusTable">Statussen</button>
+    <button type="button" class="btn btn-info" data-toggle="table" data-target="#tochtTable">Tochten</button>
+    <button type="button" class="btn btn-info" data-toggle="table" data-target="#trackersTable">Trackers</button>
 </div>
 
 <!-- Boekingen -->
@@ -62,7 +62,7 @@
                         }
                         echo '<td>
                             <form action="donkey_client_forms.php" method="post">
-                                <input type="hidden" name="row_id" value="'.$Brecord['ID'].'">
+                                <input type="hidden" name="boek_id" value="'.$Brecord['ID'].'">
                                 <button type="submit" name="EditBoek" class="btn btn-outline-secondary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></button>
                                 <button type="submit" name="DeleteBoek" class="btn btn-outline-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></button>
                             </form>
@@ -126,7 +126,7 @@
                         }
                         echo '<td>
                             <form action="donkey_client_forms.php" method="post">
-                                <input type="hidden" name="row_id" value="'.$Hrecord['ID'].'">
+                                <input type="hidden" name="herb_id" value="'.$Hrecord['ID'].'">
                                 <button type="submit" name="EditHerb" class="btn btn-outline-secondary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></button>
                                 <button type="submit" name="DeleteHerb" class="btn btn-outline-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></button>
                             </form>
@@ -184,9 +184,9 @@
                         }
                         echo '<td>
                             <form action="donkey_client_forms.php" method="post">
-                                <input type="hidden" name="row_id" value="'.$Krecord['ID'].'">
-                                <button type="submit" name="EditAccount" class="btn btn-outline-secondary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></button>
-                                <button type="submit" name="DeleteAccount" class="btn btn-outline-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></button>
+                                <input type="hidden" name="klant_id" value="'.$Krecord['ID'].'">
+                                <button type="submit" name="EditKlant" class="btn btn-outline-secondary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></button>
+                                <button type="submit" name="DeleteKlant" class="btn btn-outline-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></button>
                             </form>
                             </td>
                         </tr>';
@@ -251,7 +251,7 @@
                         <td></td>
                         <td>
                             <form action="donkey_client_forms.php" method="post">
-                                <input type="hidden" name="row_id" value="'.$Orecord['ID'].'">
+                                <input type="hidden" name="overn_id" value="'.$Orecord['ID'].'">
                                 <button type="submit" name="EditOvern" class="btn btn-outline-secondary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></button>
                                 <button type="submit" name="DeleteOvern" class="btn btn-outline-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></button>
                             </form>
@@ -319,7 +319,7 @@
                         }
                         echo '<td>
                             <form action="donkey_client_forms.php" method="post">
-                                <input type="hidden" name="row_id" value="'.$Precord['ID'].'">
+                                <input type="hidden" name="pauze_id" value="'.$Precord['ID'].'">
                                 <button type="submit" name="EditPauze" class="btn btn-outline-secondary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></button>
                                 <button type="submit" name="DeletePauze" class="btn btn-outline-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></button>
                             </form>
@@ -383,7 +383,7 @@
                         }
                         echo '<td>
                             <form action="donkey_client_forms.php" method="post">
-                                <input type="hidden" name="row_id" value="'.$Rrecord['ID'].'">
+                                <input type="hidden" name="rest_id" value="'.$Rrecord['ID'].'">
                                 <button type="submit" name="EditRest" class="btn btn-outline-secondary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></button>
                                 <button type="submit" name="DeleteRest" class="btn btn-outline-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></button>
                             </form>
@@ -420,7 +420,7 @@
                 <th></th>
                 <th>
                     <form id="AddStatus" action="donkey_client_forms.php" method="post">
-                        <button type="submit" name="CreateStatus" value="CreateStatus" class="btn btn-outline-info btn-sm">
+                        <button type="submit" name="CreateStat" value="CreateStatus" class="btn btn-outline-info btn-sm">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg>
                         </button>
                     </form>                  
@@ -444,15 +444,16 @@
                         echo "<tr>";
                         foreach ($allStat['columns'] as $Scolumn) {
                             echo "<td>{$Srecord[$Scolumn]}</td>";
-                            echo "<td></td>";
                         }
-                        echo '<td>
+                        echo '
+                        <td></td>
+                        <td>
                             <form action="donkey_client_forms.php" method="post">
-                                <input type="hidden" name="row_id" value="'.$Srecord['ID'].'">
-                                <button type="submit" name="EditStatus" class="btn btn-outline-secondary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></button>
-                                <button type="submit" name="DeleteStatus" class="btn btn-outline-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></button>
+                                <input type="hidden" name="status_id" value="'.$Srecord['ID'].'">
+                                <button type="submit" name="EditStat" class="btn btn-outline-secondary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></button>
+                                <button type="submit" name="DeleteStat" class="btn btn-outline-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></button>
                             </form>
-                            </td>
+                        </td>
                         </tr>';
                     }
                 }
@@ -509,14 +510,12 @@
                         echo "<tr>";
                         foreach ($allTocht['columns'] as $TOcolumn) {
                             echo "<td>{$TOrecord[$TOcolumn]}</td>";
-                            echo "
-                                <td></td>
-                                <td></td>
-                            ";
                         }
-                        echo '<td>
+                        echo '<td></td>
+                        <td></td>
+                        <td>
                             <form action="donkey_client_forms.php" method="post">
-                                <input type="hidden" name="row_id" value="'.$TOrecord['ID'].'">
+                                <input type="hidden" name="tocht_id" value="'.$TOrecord['ID'].'">
                                 <button type="submit" name="EditTocht" class="btn btn-outline-secondary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></button>
                                 <button type="submit" name="DeleteTocht" class="btn btn-outline-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></button>
                             </form>
@@ -550,7 +549,6 @@
                     }
                 ?>
                 <th></th>
-                <th></th>
                 <th>
                     <form id="AddTrack" action="donkey_client_forms.php" method="post">
                         <button type="submit" name="CreateTrack" value="CreateTrack" class="btn btn-outline-info btn-sm">
@@ -578,9 +576,11 @@
                         foreach ($allTrack['columns'] as $TRcolumn) {
                             echo "<td>{$TRrecord[$TRcolumn]}</td>";
                         }
-                        echo '<td>
+                        echo '
+                        <td></td>
+                        <td>
                             <form action="donkey_client_forms.php" method="post">
-                                <input type="hidden" name="row_id" value="'.$TRrecord['ID'].'">
+                                <input type="hidden" name="track_id" value="'.$TRrecord['ID'].'">
                                 <button type="submit" name="EditTrack" class="btn btn-outline-secondary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></button>
                                 <button type="submit" name="DeleteTrack" class="btn btn-outline-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></button>
                             </form>

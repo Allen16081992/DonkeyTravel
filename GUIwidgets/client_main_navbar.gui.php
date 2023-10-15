@@ -10,8 +10,8 @@
                 <li class="nav-item active">
                     <?php
                         if(isset($_SESSION['klant_id'])) {
-                            echo '<a class="nav-link">Ingelogd als:'.$_SESSION['klant_name'].'<span class="sr-only">(current)</span></a>';
-                        } else { echo '<a class="nav-link">Ingelogd als: [mijn usernaam] <span class="sr-only">(current)</span></a>'; }
+                            echo '<a class="nav-link">Ingelogd als: <i>'.$_SESSION['klant_naam'].'</i><span class="sr-only">(current)</span></a>';
+                        } else { echo '<a class="nav-link">Ingelogd als: [mijn naam] <span class="sr-only">(current)</span></a>'; }
                     ?>
                 </li>
                 <li class="nav-item">

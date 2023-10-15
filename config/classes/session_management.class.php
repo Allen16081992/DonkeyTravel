@@ -4,9 +4,9 @@
     }
    
     function redirectUnauthorized() {
-        if (!isset($_SESSION['user_id'])) {
-            $_SESSION['error'] = '401: Access denied. You must be signed in.';
+        if (!isset($_SESSION['klant_id'])) {
+            $_SESSION['error'] = '401: Toegang Geweigerd. Je moet ingelogd zijn om deze pagina te kunnen bekijken.';
             header('Location: ././index.php');
             exit;
-        } //else { $userID = $_SESSION['user_id']; }
+        } //else { $klantID = $_SESSION['klant_id']; }
     }

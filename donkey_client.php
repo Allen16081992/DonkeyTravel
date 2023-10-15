@@ -1,6 +1,6 @@
 <?php 
     include_once 'config/classes/session_management.class.php'; 
-    //redirectUnauthorized();
+    redirectUnauthorized();
     require_once 'config/view.herberg.php';
     require_once 'config/view.tochten.php';
     require_once 'config/view.trackers.php';

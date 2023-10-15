@@ -1,5 +1,5 @@
 <?php // Loubna Faress
-    include_once 'config/classes/session_management.class.php'; 
+    include_once 'classes/session_management.class.php'; 
     require_once 'classes/database.class.php';
 
     class klantLogin {
