@@ -19,72 +19,73 @@
             <div class="col-md-6">
             <?php 
                 if (isset($_POST['CreateBoek'])) {
-                    echo "
-                        <h3>Boeking Aanvragen</h3>
-                        <form action='#' method='post'>
+                    require_once 'config/view.tochten.php';
+                    echo "<h3>Boeking Aanvragen</h3>
+                        <form action='' method='post'>
                             <input type='hidden' name='CreateBoek'>
-                            <div class'form-group'>
-                                <div class='form-group'>
-                                    <label for='startdatum'>Startdatum:</label>
-                                    <input type='date' class='form-control' name='startdatum' placeholder='Selecteer de startdatum'>
-                                </div>
-                                <label for='tocht'>Tocht:</label>
-                                <select class='form-control' name='tocht'>
-                                    <option value='tocht1'>Tocht 1</option>
-                                    <option value='tocht2'>Tocht 2</option>
-                                    <option value='tocht3'>Tocht 3</option>
-                                    <option value='tocht4'>Tocht 4</option>
-                                </select>
-                            </div><br>
+                            <div class='form-group'>
+                                <label for='Startdatum'>Startdatum:</label>
+                                <input type='date' class='form-control' name='Startdatum:' placeholder='Selecteer de startdatum'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Status'>Tocht:</label>
+                                <select class='form-control' name='Status'>";
+                                // Loop through records
+                                foreach ($allTocht['records'] as $optionRecord) {
+                                    echo '<option value="' . $optionRecord['ID'] . '">' . $optionRecord['Route'] . '</option>';
+                                }
+                    echo "</select>
+                            </div>
                             <button type='submit' class='btn btn-primary'>Aanvragen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
                 elseif (isset($_POST['EditBoek'])) {
-                    echo "
-                        <h3>Boeking Wijzigen</h3>
-                        <form action='#' method='post'>
+                    require_once 'config/view.tochten.php';
+                    echo "<h3>Boeking Wijzigen</h3>
+                        <form action='' method='post'>
                             <input type='hidden' name='EditBoek'>
-                            <div class'form-group'>
-                                <div class='form-group'>
-                                    <label for='startdatum'>Startdatum:</label>
-                                    <input type='date' class='form-control' id='startdatum' placeholder='Selecteer de startdatum'>
-                                </div>
-                                <label for='tocht'>Tocht:</label>
-                                <select class='form-control' id='tocht'>
-                                    <option value='tocht1'>Tocht 1</option>
-                                    <option value='tocht2'>Tocht 2</option>
-                                    <option value='tocht3'>Tocht 3</option>
-                                    <option value='tocht4'>Tocht 4</option>
-                                </select>
-                            </div><br>
+                            <input type='hidden' name='boek_id' value='{$data['ID']}'>
+                            <div class='form-group'>
+                                <label for='Startdatum'>Startdatum:</label>
+                                <input type='date' class='form-control' name='Startdatum:' value='{$data['StartDatum']}'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Status'>Tocht:</label>
+                                <select class='form-control' name='Status'>";
+                                // Loop through records
+                                foreach ($allTocht['records'] as $optionRecord) {
+                                    echo '<option value="' . $optionRecord['ID'] . '">' . $optionRecord['Route'] . '</option>';
+                                }
+                    echo "</select>
+                            </div>
                             <button type='submit' class='btn btn-primary'>Wijzigen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
                 elseif (isset($_POST['DeleteBoek'])) {
-                    echo "
-                        <h3>Boeking Verwijderen</h3>
-                        <form action='#' method='post'>
+                    require_once 'config/view.tochten.php';
+                    echo "<h3>Boeking Verwijderen</h3>
+                        <form action='' method='post'>
                             <input type='hidden' name='DeleteBoek'>
+                            <input type='hidden' name='boek_id' value='{$data['ID']}'>
                             <div class='form-group'>
-                                <div class='form-group'>
-                                    <label for='startdatum'>Startdatum:</label>
-                                    <input type='date' class='form-control' id='startdatum' placeholder='Selecteer de startdatum'>
-                                </div>
-                                <div class='form-group'>
-                                    <label for='einddatum'>Einddatum:</label>
-                                    <input type='date' class='form-control' id='einddatum' placeholder='Selecteer de einddatum'>
-                                </div>
-                                <label for='tocht'>Tocht:</label>
-                                <select class='form-control' id='tocht'>
-                                    <option value='tocht1'>Tocht 1</option>
-                                    <option value='tocht2'>Tocht 2</option>
-                                    <option value='tocht3'>Tocht 3</option>
-                                    <option value='tocht4'>Tocht 4</option>
-                                </select>
+                                <label for='Startdatum'>Startdatum:</label>
+                                <input type='date' class='form-control' name='Startdatum:' value='{$data['StartDatum']}' readonly>
                             </div>
-                            <button type='submit' class='btn btn-primary'>Wijzigen</button>
+                            <div class='form-group'>
+                                <label for='Status'>Tocht:</label>
+                                <select class='form-control' name='Status' disabled>";
+                                // Loop through records
+                                foreach ($allTocht['records'] as $optionRecord) {
+                                    echo '<option value="' . $optionRecord['ID'] . '">' . $optionRecord['Route'] . '</option>';
+                                }
+                    echo "</select>
+                            </div>
+                            <button type='submit' class='btn btn-primary'>Verwijderen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
@@ -114,6 +115,7 @@
                                 <input type='text' class='form-control' name='Latlon' placeholder='coordinates'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verzenden</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
@@ -144,6 +146,7 @@
                                 <input type='text' class='form-control' name='coordinates' placeholder='{$data['Coordinaten']}'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verzenden</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
@@ -174,6 +177,7 @@
                                 <input type='text' class='form-control' name='Coordinaten' value='{$data['Coordinaten']}' readonly>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verzenden</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
@@ -200,6 +204,7 @@
                                 <input type='password' class='form-control' name='Wachtwoord' value='{$data['Wachtwoord']}'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Wijzigen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
@@ -226,13 +231,14 @@
                                 <input type='password' class='form-control' name='Wachtwoord' value='{$data['Wachtwoord']}' readonly>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verwijderen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 } 
                 if (isset($_POST['CreateRest'])) {
                     echo "
                         <h3>Restaurant Aanmaken</h3>
-                        <form action='#' method='post'>
+                        <form action='config/create.restaurant.php' method='post'>
                             <input type='hidden' name='CreateRest'>
                             <div class='form-group'>
                                 <label for='name'>Naam:</label>
@@ -255,6 +261,7 @@
                                 <input type='text' class='form-control' name='coordinates' placeholder='coordinates'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verzenden</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
@@ -285,13 +292,14 @@
                                 <input type='text' class='form-control' name='Coordinaten' value='{$data['Coordinaten']}'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Wijzigen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
                 elseif (isset($_POST['DeleteRest'])) {
                     echo "
                         <h3>Restaurant Verwijderen</h3>
-                        <form action='#' method='post'>
+                        <form action='config/delete.restaurant.php' method='post'>
                             <input type='hidden' name='DeleteRest'>
                             <input type='hidden' name='rest_id' value='{$data['ID']}'>
                             <div class='form-group'>
@@ -315,6 +323,7 @@
                                 <input type='text' class='form-control' name='Coordinaten' value='{$data['Coordinaten']}' readonly>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verwijderen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
@@ -420,6 +429,7 @@
                                 <input type='text' class='form-control' name='AantalDagen' placeholder='AantalDagen'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verzenden</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
@@ -442,6 +452,7 @@
                                 <input type='text' class='form-control' name='AantalDagen' value='{$data['AantalDagen']}'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Wijzigen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
@@ -464,6 +475,7 @@
                                 <input type='text' class='form-control' name='AantalDagen' value='{$data['AantalDagen']}' readonly>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verwijderen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
@@ -493,6 +505,7 @@
                                 <input type='text' class='form-control' name='StatussenID' placeholder='StatussenID'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verwijderen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
@@ -519,6 +532,7 @@
                                 <input type='text' class='form-control' name='Tijd' value='{$data['Time']}'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Wijzigen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }
@@ -545,6 +559,7 @@
                                 <input type='text' class='form-control' name='Tijd' value='{$data['Time']}' readonly>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verwijderen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
                 }

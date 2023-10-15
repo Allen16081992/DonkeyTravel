@@ -5,6 +5,12 @@
     if (isset($_POST['submit'])){
         $nieuweklanten = new klanten ($_POST['Naam'], $_POST['Email'], $_POST['Telefoon'], $_POST['Wachtwoord']);
         $nieuweklanten->createklanten();
+
+        // Khaqan Ul Haq Awan
+        // echo "Klant is aangemaakt";
+
+        // Dhr. Allen Pieter, betere notificatie
+        // Welkomst bericht
         echo "<!DOCTYPE html>
             <html lang='en'>
             <head>

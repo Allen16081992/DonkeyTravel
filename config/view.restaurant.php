@@ -1,8 +1,7 @@
-<?php // Khaqan Awan
+<?php // Khaqan Ul Haq Awan
 require_once 'classes/database.class.php';
 
 class viewRestaurants {
-
     private $pdo;
 
     public function __construct() {

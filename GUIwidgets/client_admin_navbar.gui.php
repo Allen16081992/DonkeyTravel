@@ -18,7 +18,7 @@
         <thead class="table-success">
             <tr>
                 <?php
-                if (!isset($allInfo)) {
+                if (!isset($allBoek)) {
                     echo "
                         <th>ID</th>						
                         <th>StartDatum</th>
@@ -28,7 +28,7 @@
                         <th>FKstatussenID</th>
                     ";
                 } else {
-                    foreach ($allInfo['columns'] as $Bcolumn) {
+                    foreach ($allBoek['columns'] as $Bcolumn) {
                         echo "<th>$Bcolumn</th>";
                     }
                 }
@@ -44,7 +44,7 @@
         </thead>
         <tbody>
             <?php
-                if (!isset($allInfo)) {
+                if (!isset($allBoek)) {
                     echo "
                         <td></td>
                         <td></td>
@@ -55,9 +55,9 @@
                         <td></td>
                     ";
                 } else {
-                    foreach ($allInfo['records'] as $Brecord) {
+                    foreach ($allBoek['records'] as $Brecord) {
                         echo "<tr>";
-                        foreach ($allInfo['columns'] as $Bcolumn) {
+                        foreach ($allBoek['columns'] as $Bcolumn) {
                             echo "<td>{$Brecord[$Bcolumn]}</td>";
                         }
                         echo '<td>

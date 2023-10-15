@@ -32,7 +32,7 @@
                 $_SESSION['klant_id'] = $klantID['ID'];
                 $_SESSION['klant_naam'] = $klantID['Naam'];
                 // succesbericht wordt weergegeven als het gelukt is
-                $_SESSION['success'] = "Login successful";
+                $_SESSION['success'] = "U bent ingelogd";
 
                 // de gebruiker wordt doorgestuurd naar 'donkey_client.php' de klant pagina
                 header('location: ../donkey_client.php');

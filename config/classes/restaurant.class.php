@@ -38,25 +38,26 @@ class restaurants extends Database {
         $sql->execute();
     }
 
-    public function readrestaurant()
-    {
-        $connection = $this->connect();
-        $sql = $connection->prepare("
-        SELECT *
-        FROM restaurants");
+    // Vervangen voor: view.restaurant.php
+    //public function readrestaurant()
+    //{
+    //    $connection = $this->connect();
+    //    $sql = $connection->prepare("
+    //    SELECT *
+    //    FROM restaurants");
 
-        $sql->execute();
+    //    $sql->execute();
 
-        foreach ($sql as $restaurant)
-        {
-            echo $restaurant["ID"];
-            echo $this->Naam = $restaurant["Naam"];
-            echo $this->Adres = $restaurant["Adres"];
-            echo $this->Email = $restaurant ["Email"];
-            echo $this->Telefoon = $restaurant["Telefoon"];
-            echo $this->Coordinaten = $restaurant["Coordinaten"];
-        }
-    }
+    //    foreach ($sql as $restaurant)
+    //    {
+    //        echo $restaurant["ID"];
+    //        echo $this->Naam = $restaurant["Naam"];
+    //        echo $this->Adres = $restaurant["Adres"];
+    //        echo $this->Email = $restaurant ["Email"];
+    //        echo $this->Telefoon = $restaurant["Telefoon"];
+    //        echo $this->Coordinaten = $restaurant["Coordinaten"];
+    //    }
+    //}
 
     public function updaterestaurant ($ID)
     {

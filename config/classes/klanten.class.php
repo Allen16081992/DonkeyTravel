@@ -12,7 +12,7 @@
             $this->Wachtwoord = $Wachtwoord;
         }
 
-        // Khaqan Ul Haq Awan: kleine fixes.
+        // Khaqan Ul Haq Awan: fixed.
         public function createklanten() {
             $connect = $this->connect();
             $Naam = $this->getNaam();
