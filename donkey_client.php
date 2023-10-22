@@ -37,15 +37,15 @@
         <?php 
             if (isset($_SESSION['ID']) && isset($_SESSION['admin'])) {
                 include_once 'GUIwidgets/client_admin_navbar.gui.php'; 
+                // GPS-Tracking
+                include_once 'GUIwidgets/client_navigate.gui.php';
             } else { 
                 //include_once 'GUIwidgets/client_klant_navbar.gui.php'; 
                 include_once 'GUIwidgets/client_admin_navbar.gui.php';
+                include_once 'GUIwidgets/client_navigate.gui.php';
             }
         ?>        
     </div>
-
-    <!-- GPS-Tracking -->
-    <?php include_once 'GUIwidgets/client_navigate.gui.php'; ?>
 
     <!-- Bootstrap JS and other scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

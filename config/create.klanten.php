@@ -30,7 +30,7 @@
                 <div class='card-body'>
                     <h5 class='card-title'>Welkom bij DonkeyTravel</h5>
                     <p class='card-text'>Bedankt voor uw aanmelding. U kunt nu inloggen.</p>
-                    <p class='card-text'>Klik hier om terug te gaan naar onze homepage.</p>
+                    <p class='card-text'>Klik hier om terug te gaan naar de homepage.</p>
                     <a href='../index.php?success' class='btn btn-primary'>Homepage</a>
                 </div>
             </div>

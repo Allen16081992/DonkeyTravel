@@ -27,7 +27,7 @@
                         <label for="Wachtwoord">Wachtwoord:</label>
                         <input type="password" class="form-control" name="Wachtwoord"><br>
                     </div>
-                    <input type="submit" name="submit" class="btn btn-primary mb-2" value="Verzenden">
+                    <input type="submit" name="submit" class="btn btn-primary mb-2" value="Maak Account">
                 </form>
             </div>
         </div>

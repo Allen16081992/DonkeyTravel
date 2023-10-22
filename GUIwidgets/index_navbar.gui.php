@@ -12,10 +12,10 @@
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#registrationModal">Register</a>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#registrationModal">Account Maken</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="#">Over Ons</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
