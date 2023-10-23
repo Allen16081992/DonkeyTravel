@@ -1,20 +1,17 @@
 <!doctype html>
 <html>
 <head>
-    <title>Zoek klant</title>
+    <title>Zoek reservering</title>
 </head>
 <body>
-<h1>Zoek klant</h1>
+<h1>Zoek reservering</h1>
 
 <?php
-
-require "classes/restaurant.class.php";
-include_once "classes/database.class.php";
+require_once "classes/restaurant.class.php";
 
 $ID = $_POST["ID"];
-$ID1 = new restaurants();
-$ID1->searchrestaurant($ID);
-$ID1->afdrukkenrestaurant();
+$ID1 = new restaurants($ID);
+$ID1->searchrestaurant();
 ?>
 
 

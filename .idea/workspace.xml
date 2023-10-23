@@ -48,11 +48,24 @@
       <workItem from="1695725067200" duration="5316000" />
       <workItem from="1696402637589" duration="6366000" />
       <workItem from="1696413160368" duration="2801000" />
-      <workItem from="1697007157114" duration="7163000" />
+      <workItem from="1697007157114" duration="9279000" />
+      <workItem from="1697100564853" duration="8212000" />
+      <workItem from="1697995092652" duration="6118000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/config/fetchKlant.php</url>
+          <line>25</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

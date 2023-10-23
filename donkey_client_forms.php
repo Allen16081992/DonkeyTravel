@@ -268,7 +268,7 @@
                 elseif (isset($_POST['EditRest'])) {        
                     echo "
                         <h3>Restaurant Wijzigen</h3>
-                        <form action='#' method='post'>
+                        <form action='config/classes/restaurant.class.php' method='post'>
                             <input type='hidden' name='EditRest'>
                             <input type='hidden' name='rest_id' value='{$data['ID']}'>
                             <div class='form-group'>

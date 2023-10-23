@@ -1,6 +1,8 @@
 <?php // Khaqan Ul Haq Awan
 include_once "classes/database.class.php";
-class restaurants extends Database {
+
+class restaurants extends Database
+{
     private $ID;
     private $Naam;
     private $Adres;
@@ -8,8 +10,9 @@ class restaurants extends Database {
     private $Telefoon;
     private $Coordinaten;
 
-    public function __construct ($Naam, $Email, $Telefoon, $Adres, $Coordinaten)
+    public function __construct($ID = NULL, $Naam = NULL, $Email = NULL, $Telefoon = NULL, $Adres = NULL, $Coordinaten = NULL)
     {
+        $this->ID = $ID;
         $this->Naam = $Naam;
         $this->Adres = $Adres;
         $this->Email = $Email;
@@ -27,41 +30,43 @@ class restaurants extends Database {
         $Coordinaten = $this->getCoordinaten();
 
         $sql = $connection->prepare(
-          "INSERT INTO restaurants(Naam, Adres, Email, Telefoon, Coordinaten)
+            "INSERT INTO restaurants(Naam, Adres, Email, Telefoon, Coordinaten)
                   VALUES (:Naam, :Adres, :Email, :Telefoon, :Coordinaten);"
         );
         $sql->bindParam(":Naam", $Naam);
         $sql->bindParam(":Adres", $Adres);
         $sql->bindParam(":Email", $Email);
-        $sql->bindParam(":Telefoon",$Telefoon);
+        $sql->bindParam(":Telefoon", $Telefoon);
         $sql->bindParam(":Coordinaten", $Coordinaten);
         $sql->execute();
     }
+    public function readrestaurant()
+    {
+        try {
+            $connection = $this->connect();
+            $sql = $connection->prepare("
+            SELECT *
+            FROM restaurants");
+            $sql->execute();
 
-    // Vervangen voor: view.restaurant.php
-    //public function readrestaurant()
-    //{
-    //    $connection = $this->connect();
-    //    $sql = $connection->prepare("
-    //    SELECT *
-    //    FROM restaurants");
+            foreach ($sql as $restaurant) {
+                echo $restaurant["ID"];
+                echo $restaurant["Naam"];
+                echo $restaurant["Adres"];
+                echo $restaurant["Email"];
+                echo $restaurant["Telefoon"];
+                echo $restaurant["Coordinaten"];
+            }
+        } catch (PDOException $e) {
+            // Handle the exception (e.g., log the error or display a user-friendly message)
+            die("Error: " . $e->getMessage());
+        }
+    }
 
-    //    $sql->execute();
-
-    //    foreach ($sql as $restaurant)
-    //    {
-    //        echo $restaurant["ID"];
-    //        echo $this->Naam = $restaurant["Naam"];
-    //        echo $this->Adres = $restaurant["Adres"];
-    //        echo $this->Email = $restaurant ["Email"];
-    //        echo $this->Telefoon = $restaurant["Telefoon"];
-    //        echo $this->Coordinaten = $restaurant["Coordinaten"];
-    //    }
-    //}
-
-    public function updaterestaurant ($ID)
+    public function updaterestaurant($ID)
     {
         $connection = $this->connect();
+
         $Naam = $this->getNaam();
         $Adres = $this->getAdres();
         $Email = $this->getEmail();
@@ -82,10 +87,12 @@ class restaurants extends Database {
         $sql->bindParam(":Coordinaten", $Coordinaten);
         $sql->execute();
 
+
     }
 
-    public function searchrestaurant($ID)
+    public function searchrestaurant()
     {
+        $ID = $this->getID();
         $connection = $this->connect();
         $sql = $connection->prepare(
             "SELECT ID, Naam, Adres, Email, Telefoon, Coordinaten
@@ -95,14 +102,14 @@ class restaurants extends Database {
         $sql->bindParam(":ID", $ID);
         $sql->execute();
 
-        foreach ($sql as $restaurant)
-        {
+        foreach ($sql as $restaurant) {
             $this->Naam = $restaurant["Naam"];
             $this->Adres = $restaurant["Adres"];
             $this->Email = $restaurant["Email"];
             $this->Telefoon = $restaurant["Telefoon"];
             $this->Coordinaten = $restaurant["Coordinaten"];
         }
+        $this->afdrukkenrestaurant();
     }
 
     public function afdrukkenrestaurant()
@@ -114,22 +121,10 @@ class restaurants extends Database {
         echo $this->getEmail();
         echo "<br/>";
         echo $this->getTelefoon();
-        echo"<br/>";
+        echo "<br/>";
         echo $this->getCoordinaten();
 
     }
-
-    public function getID()
-    {
-        return $this->ID;
-    }
-
-    public function setID($ID): void
-    {
-        $this->ID = $ID;
-    }
-
-
 
     public function getNaam()
     {
@@ -181,6 +176,17 @@ class restaurants extends Database {
         $this->Coordinaten = $Coordinaten;
     }
 
+
+
+    public function getID()
+    {
+        return $this->ID;
+    }
+
+    public function setID($ID): void
+    {
+        $this->ID = $ID;
+    }
 
 
 }
