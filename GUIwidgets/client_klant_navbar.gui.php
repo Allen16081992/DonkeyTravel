@@ -14,6 +14,7 @@
                 <th>StartDatum</th>
                 <th>PINCode</th>
                 <th>Tocht</th>
+                <th></th>
                 <th>Status</th>
                 <th>
                     <form id="AddBoek" action="donkey_client_forms.php" method="post">
@@ -26,7 +27,7 @@
         </thead>
         <tbody>
             <?php
-                if (!isset($allBoek)) {
+                if (!isset($allBoek) && !isset($allTocht)) {
                     echo "
                         <td></td>
                         <td></td>
@@ -37,10 +38,15 @@
                     ";
                 } else {
                     foreach ($allBoek['records'] as $Brecord) {
+                        $TOrecord = $allToch['records'][$index];
                         echo "<tr>";
-                        foreach ($allBoek['columns'] as $Bcolumn) {
-                            echo "<td>{$Brecord[$Bcolumn]}</td>";
-                        }
+                        
+                        // Display specific columns
+                        echo "<td>{$Brecord['ID']}</td>";
+                        echo "<td>{$Brecord['StartDatum']}</td>";
+                        echo "<td>{$TOrecord['Route']}</td>";
+                        echo "<td>{$Brecord['FKstatussenID']}</td>";
+                    
                         echo '<td>
                             <form action="donkey_client_forms.php" method="post">
                                 <input type="hidden" name="boek_id" value="'.$Brecord['ID'].'">
@@ -50,6 +56,7 @@
                             </td>
                         </tr>';
                     }
+                    
                 }
             ?>
         </tbody>

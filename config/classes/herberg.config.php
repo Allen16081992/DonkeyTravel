@@ -1,6 +1,6 @@
 <?php // Dhr. Allen Pieter
-    include_once 'classes/session_management.class.php';
-    require_once 'classes/database.class.php'; 
+    include_once 'session_management.class.php';
+    require_once 'database.class.php'; 
 
     class Herberg {
         private $pdo;
@@ -45,7 +45,7 @@
                 }
     
                 // Optionally, you can redirect to a success page or do other actions
-                header("Location: ../donkey_client.php");
+                header("Location: ../../donkey_client.php");
                 exit();
             } catch (PDOException $e) {
                 // Log the error
@@ -68,14 +68,14 @@
             foreach ($Fields as $field) {
                 if (empty($formData[$field])) {
                     $_SESSION['error'] = 'Please fill in all fields.';
-                    header("Location: ../donkey_client.php");
+                    header("Location: ../../donkey_client.php");
                     exit();
                 }
             }
         }
     }
     
-    // Usage
+    // Create instances and call the processForm function
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             $db = new Database();

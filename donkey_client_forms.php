@@ -122,7 +122,7 @@
                 elseif (isset($_POST['EditHerb'])) {
                     echo "
                         <h3>Herberg Wijzigen</h3>
-                        <form name='EditHerb' action='config/crud_herberg.config.php' method='post'>
+                        <form name='EditHerb' action='config/classes/herberg.config.php' method='post'>
                             <input type='hidden' name='EditHerb'>
                             <input type='hidden' name='herb_id' value='{$data['ID']}'>
                             <div class='form-group'>
@@ -153,7 +153,7 @@
                 elseif (isset($_POST['DeleteHerb'])) {
                     echo "
                         <h3>Herberg Verwijderen</h3>
-                        <form name='DeleteHerb' action='config/crud_herberg.config.php' method='post'>
+                        <form name='DeleteHerb' action='config/classes/herberg.config.php' method='post'>
                             <input type='hidden' name='DeleteHerb'>
                             <input type='hidden' name='herb_id' value='{$data['ID']}'>
                             <div class='form-group'>

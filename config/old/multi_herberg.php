@@ -1,6 +1,6 @@
 <?php // Dhr. Allen Pieter
-    include_once 'classes/session_management.class.php';
-    require_once 'classes/database.class.php'; 
+    include_once 'session_management.class.php';
+    require_once 'database.class.php'; 
 
     class Herberg {
         private $naam;
@@ -39,7 +39,7 @@
             } else {
                 $_SESSION['error'] = 'Geen geldige actie opgegeven. Kies Toevoegen, Bewerken, of Verwijderen.';
             }
-            header("Location: ../donkey_client.php");
+            header("Location: ../../donkey_client.php");
             exit();
         }
 

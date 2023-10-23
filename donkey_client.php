@@ -40,9 +40,9 @@
                 // GPS-Tracking
                 include_once 'GUIwidgets/client_navigate.gui.php';
             } else { 
-                //include_once 'GUIwidgets/client_klant_navbar.gui.php'; 
-                include_once 'GUIwidgets/client_admin_navbar.gui.php';
-                include_once 'GUIwidgets/client_navigate.gui.php';
+                include_once 'GUIwidgets/client_klant_navbar.gui.php'; 
+                //include_once 'GUIwidgets/client_admin_navbar.gui.php';
+                //include_once 'GUIwidgets/client_navigate.gui.php';
             }
         ?>        
     </div>
