@@ -182,13 +182,7 @@
                         foreach ($allKlant['columns'] as $Kcolumn) {
                             echo "<td>{$Krecord[$Kcolumn]}</td>";
                         }
-                        echo '<td>
-                            <form action="donkey_client_forms.php" method="post">
-                                <input type="hidden" name="klant_id" value="'.$Krecord['ID'].'">
-                                <button type="submit" name="EditKlant" class="btn btn-outline-secondary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></button>
-                                <button type="submit" name="DeleteKlant" class="btn btn-outline-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></button>
-                            </form>
-                            </td>
+                        echo '<td></td>
                         </tr>';
                     }
                 }
@@ -334,7 +328,18 @@
 
 <!-- Restaurants -->
 <div id="restaurantsTable" class="table-container" style="display: none;">
-    <h3>Restaurants</h3>
+    <form action="config/search.restaurant.php" class="row g-3" method="post">
+        <div class="col-md-2">
+            <h3>Restaurants</h3>
+        </div>
+        <div class="col-md-2">
+            <input type="text" class="form-control" name="RestID" placeholder="ID">
+        </div>
+        <div class="col-md-2">
+            <input type="submit" class="btn btn-primary" value="Zoeken">
+        </div>
+    </form>
+
     <table class="table table-hover table-bordered table-striped">
         <thead class="table-success">
             <tr>

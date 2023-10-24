@@ -2,7 +2,7 @@
     include_once 'session_management.class.php';
     require_once 'database.class.php'; 
 
-    class Herberg {
+    class Tochten {
         // Properties //
         private $pdo;
     
@@ -19,37 +19,35 @@
                 $this->validateFormData($formData);
 
                 // Absorb form data
-                $name = $formData['Naam'];
-                $adres = $formData['Adres'];
-                $email = $formData['Email'];
-                $tel = $formData['Telefoon'];
-                $coordinates = $formData['Latlon'];
-                $herbid = $formData['herb_id'];
+                $desc = $formData['Omschrijving'];
+                $route = $formData['Route'];
+                $dagen = $formData['AantalDagen'];
+                $tochtid = $formData['tocht_id'];
     
                 // Verify which form was submitted
-                if (isset($_POST['AddHerb'])) {
+                if (isset($_POST['AddTocht'])) {
                     // Prepare and execute SQL query
-                    $stmt = $this->pdo->prepare("INSERT INTO herbergen (Naam, Adres, Email, Telefoon, Coordinaten) VALUES (?, ?, ?, ?, ?)");
-                    $stmt->execute([$name, $adres, $email, $tel, $coordinates]);
+                    $stmt = $this->pdo->prepare("INSERT INTO tochten (Omschrijving, Route, AantalDagen) VALUES (?, ?, ?)");
+                    $stmt->execute([$desc, $route, $dagen]);
 
                     // Provide message
-                    $_SESSION['success'] = "Herberg is toegevoegd.";
+                    $_SESSION['success'] = "Tocht is toegevoegd.";
                 }
-                elseif (isset($_POST['EditHerb'])) {
+                elseif (isset($_POST['EditTocht'])) {
                     // Prepare and execute SQL query
-                    $stmt = $this->pdo->prepare("UPDATE herbergen SET Naam = ?, Adres = ?, Email = ?, Telefoon = ?, Coordinaten = ? WHERE ID = ?;");
-                    $stmt->execute([$name, $adres, $email, $tel, $coordinates, $herbid]);
+                    $stmt = $this->pdo->prepare("UPDATE tochten SET Omschrijving = ?, Route = ?, AantalDagen = ? WHERE ID = ?;");
+                    $stmt->execute([$desc, $route, $dagen, $tochtid]);
 
                     // Provide message
-                    $_SESSION['success'] = "Herberg is bijgewerkt.";
+                    $_SESSION['success'] = "Tocht is bijgewerkt.";
                 }
-                elseif (isset($_POST['DeleteHerb'])) {
+                elseif (isset($_POST['DeleteTocht'])) {
                     // Prepare and execute SQL query
-                    $stmt = $this->pdo->prepare("DELETE FROM herbergen WHERE ID = ?");
-                    $stmt->execute([$herbid]);
+                    $stmt = $this->pdo->prepare("DELETE FROM tochten WHERE ID = ?");
+                    $stmt->execute([$tochtid]);
 
                     // Provide message
-                    $_SESSION['success'] = "Herberg is verwijderd.";
+                    $_SESSION['success'] = "Tocht is verwijderd.";
                 }
     
                 // Redirect to client environment
@@ -72,7 +70,7 @@
 
         // Empty Fields Check
         private function validateFormData(array $formData) {
-            $Fields = ['Naam', 'Adres', 'Email', 'Telefoon', 'Latlon'];
+            $Fields = ['Omschrijving', 'Route', 'AantalDagen'];
     
             foreach ($Fields as $field) {
                 if (empty($formData[$field])) {
@@ -90,7 +88,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             $db = new Database();
-            $multiProcessor = new Herberg($db);
+            $multiProcessor = new Tochten($db);
             $multiProcessor->processForm($_POST);
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();

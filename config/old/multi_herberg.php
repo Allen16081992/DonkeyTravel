@@ -9,6 +9,7 @@
         private $tel;
         private $latlon;
         private $herbID;
+        private $pdo;
 
         public function __construct() {
             $db = new Database();

@@ -21,15 +21,15 @@
                 if (isset($_POST['CreateBoek'])) {
                     require_once 'config/view.tochten.php';
                     echo "<h3>Boeking Aanvragen</h3>
-                        <form action='' method='post'>
-                            <input type='hidden' name='CreateBoek'>
+                        <form action='config/classes/boeking.config.php' method='post'>
+                            <input type='hidden' name='AddBoek'>
                             <div class='form-group'>
-                                <label for='Startdatum'>Startdatum:</label>
-                                <input type='date' class='form-control' name='Startdatum:' placeholder='Selecteer de startdatum'>
+                                <label for='StartDatum'>Startdatum:</label>
+                                <input type='date' class='form-control' name='StartDatum' placeholder='Selecteer een datum'>
                             </div>
                             <div class='form-group'>
-                                <label for='Status'>Tocht:</label>
-                                <select class='form-control' name='Status'>";
+                                <label for='Tocht'>Tocht:</label>
+                                <select class='form-control' name='Tocht'>";
                                 // Loop through records
                                 foreach ($allTocht['records'] as $optionRecord) {
                                     echo '<option value="' . $optionRecord['ID'] . '">' . $optionRecord['Route'] . '</option>';
@@ -44,16 +44,16 @@
                 elseif (isset($_POST['EditBoek'])) {
                     require_once 'config/view.tochten.php';
                     echo "<h3>Boeking Wijzigen</h3>
-                        <form action='' method='post'>
+                        <form action='config/classes/boeking.config.php' method='post'>
                             <input type='hidden' name='EditBoek'>
                             <input type='hidden' name='boek_id' value='{$data['ID']}'>
                             <div class='form-group'>
-                                <label for='Startdatum'>Startdatum:</label>
-                                <input type='date' class='form-control' name='Startdatum:' value='{$data['StartDatum']}'>
+                                <label for='StartDatum'>Startdatum:</label>
+                                <input type='date' class='form-control' name='StartDatum' value='{$data['StartDatum']}'>
                             </div>
                             <div class='form-group'>
-                                <label for='Status'>Tocht:</label>
-                                <select class='form-control' name='Status'>";
+                                <label for='Tocht'>Tocht:</label>
+                                <select class='form-control' name='Tocht'>";
                                 // Loop through records
                                 foreach ($allTocht['records'] as $optionRecord) {
                                     echo '<option value="' . $optionRecord['ID'] . '">' . $optionRecord['Route'] . '</option>';
@@ -68,16 +68,16 @@
                 elseif (isset($_POST['DeleteBoek'])) {
                     require_once 'config/view.tochten.php';
                     echo "<h3>Boeking Verwijderen</h3>
-                        <form action='' method='post'>
+                        <form action='config/classes/boeking.config.php' method='post'>
                             <input type='hidden' name='DeleteBoek'>
                             <input type='hidden' name='boek_id' value='{$data['ID']}'>
                             <div class='form-group'>
-                                <label for='Startdatum'>Startdatum:</label>
-                                <input type='date' class='form-control' name='Startdatum:' value='{$data['StartDatum']}' readonly>
+                                <label for='StartDatum'>Startdatum:</label>
+                                <input type='date' class='form-control' name='StartDatum' value='{$data['StartDatum']}' readonly>
                             </div>
                             <div class='form-group'>
-                                <label for='Status'>Tocht:</label>
-                                <select class='form-control' name='Status' disabled>";
+                                <label for='Tocht'>Tocht:</label>
+                                <select class='form-control' name='Tocht'>";
                                 // Loop through records
                                 foreach ($allTocht['records'] as $optionRecord) {
                                     echo '<option value="' . $optionRecord['ID'] . '">' . $optionRecord['Route'] . '</option>';
@@ -92,7 +92,7 @@
                 if (isset($_POST['CreateHerb'])) {
                     echo "
                         <h3>Herberg Aanmaken</h3>
-                        <form name='AddHerb' action='config/multi_herberg.php' method='post'>
+                        <form name='AddHerb' action='config/classes/herberg.config.php' method='post'>
                             <input type='hidden' name='AddHerb'>
                             <div class='form-group'>
                                 <label for='Naam'>Naam:</label>
@@ -330,11 +330,11 @@
                 if (isset($_POST['CreateStat'])) {
                     echo "
                         <h3>Status Aanmaken</h3>
-                        <form action='#' method='post'>
-                            <input type='hidden' name='CreateStat'>
+                        <form action='config/classes/status.config.php' method='post'>
+                            <input type='hidden' name='AddStat'>
                             <div class='form-group'>
-                                <label for='Statuscode'>Statuscode:</label>
-                                <input type='tel' class='form-control' name='Statuscode' placeholder='Statuscode'>
+                                <label for='StatusCode'>Status Code:</label>
+                                <input type='tel' class='form-control' name='StatusCode' placeholder='Statuscode'>
                             </div>
                             <div class='form-group'>
                                 <label for='Status'>Status:</label>
@@ -356,23 +356,23 @@
                 elseif (isset($_POST['EditStat'])) {        
                     echo "
                         <h3>Status Wijzigen</h3>
-                        <form action='#' method='post'>
+                        <form action='config/classes/status.config.php' method='post'>
                             <input type='hidden' name='EditStat'>
                             <input type='hidden' name='status_id' value='{$data['ID']}'>
                             <div class='form-group'>
-                                <label for='Statuscode'>Statuscode:</label>
-                                <input type='tel' class='form-control' name='Statuscode' value='{$data['StatusCode']}'>
+                                <label for='StatusCode'>Status Code:</label>
+                                <input type='tel' class='form-control' name='StatusCode' value='{$data['StatusCode']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='Status'>Status:</label>
                                 <input type='text' class='form-control' name='Status' value='{$data['Status']}'>
                             </div>
                             <div class='form-group'>
-                                <input type='checkbox' name='Verwijderbaar'>
+                                <input type='checkbox' name='Verwijderbaar' value='1'>
                                 <label for='Verwijderbaar'>Verwijderbaar</label>
                             </div>
                             <div class='form-group'>
-                                <input type='checkbox' name='PIN'>
+                                <input type='checkbox' name='PIN' value='1'>
                                 <label for='PIN'>PIN Toekennen</label>
                             </div>
                             <button type='submit' class='btn btn-primary'>Wijzigen</button>
@@ -383,12 +383,12 @@
                 elseif (isset($_POST['DeleteStat'])) {
                     echo "
                         <h3>Status Verwijderen</h3>
-                        <form action='#' method='post'>
+                        <form action='config/classes/status.config.php' method='post'>
                             <input type='hidden' name='DeleteStat'>
                             <input type='hidden' name='status_id' value='{$data['ID']}'>
                             <div class='form-group'>
-                                <label for='Statuscode'>Statuscode:</label>
-                                <input type='tel' class='form-control' name='Statuscode' value='{$data['StatusCode']}' readonly>
+                                <label for='StatusCode'>Status Code:</label>
+                                <input type='tel' class='form-control' name='StatusCode' value='{$data['StatusCode']}' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='Status'>Status:</label>
@@ -402,7 +402,7 @@
                             </div>
                             <div class='form-group'>
                                 <input type='hidden' name='PIN'>
-                                <label for='PIN'>PIN Toekennen:</label>";
+                                <label for='PIN'>PIN Toegekend:</label>";
                         if (isset($data['Verwijderbaar'])) { echo ' <strong>Ja</strong>'; } else { echo ' <strong>Nee</strong>'; };
                         echo"
                             </div>
@@ -414,8 +414,8 @@
                 if (isset($_POST['CreateTocht'])) {
                     echo "
                         <h3>Tochten Invoeren</h3>
-                        <form action='#' method='post'>
-                            <input type='hidden' name='CreateTocht'>
+                        <form action='config/classes/tochten.config.php' method='post'>
+                            <input type='hidden' name='AddTocht'>
                             <div class='form-group'>
                                 <label for='Omschrijving'>Omschrijving</label>
                                 <textarea class='form-control' name='Omschrijving' rows='2'></textarea>
@@ -436,7 +436,7 @@
                 elseif (isset($_POST['EditTocht'])) {
                     echo "
                         <h3>Tochten Wijzigen</h3>
-                        <form action='#' method='post'>
+                        <form action='config/classes/tochten.config.php' method='post'>
                             <input type='hidden' name='EditTocht'>
                             <input type='hidden' name='tocht_id' value='{$data['ID']}'>
                             <div class='form-group'>
@@ -459,12 +459,12 @@
                 elseif (isset($_POST['DeleteTocht'])) {
                     echo "
                         <h3>Tochten Verwijderen</h3>
-                        <form action='#' method='post'>
+                        <form name='DeleteTocht' action='config/classes/tochten.config.php' method='post'>
                             <input type='hidden' name='DeleteTocht'>
                             <input type='hidden' name='tocht_id' value='{$data['ID']}'>
                             <div class='form-group'>
                                 <label for='Omschrijving'>Example textarea</label>
-                                <textarea class='form-control' name='Omschrijving' rows='2' disabled>{$data['Omschrijving']}</textarea>
+                                <textarea class='form-control' name='Omschrijving' rows='2' readonly>{$data['Omschrijving']}</textarea>
                             </div>
                             <div class='form-group'>
                                 <label for='Route'>Route:</label>

@@ -38,13 +38,15 @@
                     ";
                 } else {
                     foreach ($allBoek['records'] as $Brecord) {
-                        $TOrecord = $allToch['records'][$index];
                         echo "<tr>";
                         
                         // Display specific columns
                         echo "<td>{$Brecord['ID']}</td>";
-                        echo "<td>{$Brecord['StartDatum']}</td>";
-                        echo "<td>{$TOrecord['Route']}</td>";
+                        echo "<td>{$Brecord['StartDatum']}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>";
+                        //echo "<td>{$TOrecord['Route']}</td>";
                         echo "<td>{$Brecord['FKstatussenID']}</td>";
                     
                         echo '<td>

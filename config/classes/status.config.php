@@ -2,7 +2,7 @@
     include_once 'session_management.class.php';
     require_once 'database.class.php'; 
 
-    class Herberg {
+    class Status {
         // Properties //
         private $pdo;
     
@@ -19,40 +19,41 @@
                 $this->validateFormData($formData);
 
                 // Absorb form data
-                $name = $formData['Naam'];
-                $adres = $formData['Adres'];
-                $email = $formData['Email'];
-                $tel = $formData['Telefoon'];
-                $coordinates = $formData['Latlon'];
-                $herbid = $formData['herb_id'];
+                $code = $formData['StatusCode'];
+                $status = $formData['Status'];
+                
+                $verw = isset($_POST['Verwijderbaar']) ? $_POST['Verwijderbaar'] : 0;
+                $pin = isset($_POST['PIN']) ? $_POST['PIN'] : 0;
     
                 // Verify which form was submitted
-                if (isset($_POST['AddHerb'])) {
+                if (isset($_POST['AddStat'])) {
                     // Prepare and execute SQL query
-                    $stmt = $this->pdo->prepare("INSERT INTO herbergen (Naam, Adres, Email, Telefoon, Coordinaten) VALUES (?, ?, ?, ?, ?)");
-                    $stmt->execute([$name, $adres, $email, $tel, $coordinates]);
+                    $stmt = $this->pdo->prepare("INSERT INTO statussen (StatusCode, Status, Verwijderbaar, PIN) VALUES (?, ?, ?, ?)");
+                    $stmt->execute([$code, $status, $verw, $pin]);
+                
+                    // Provide message
+                    $_SESSION['success'] = "Status is toegevoegd.";
+                }                
+                elseif (isset($_POST['EditStat'])) {
+                    $statid = $formData['status_id'];
+
+                    // Prepare and execute SQL query
+                    $stmt = $this->pdo->prepare("UPDATE statussen SET StatusCode = ?, Status = ?, Verwijderbaar = ?, PIN = ? WHERE ID = ?;");
+                    $stmt->execute([$code, $status, $verw, $pin, $statid]);
 
                     // Provide message
-                    $_SESSION['success'] = "Herberg is toegevoegd.";
+                    $_SESSION['success'] = "Status is bijgewerkt.";
                 }
-                elseif (isset($_POST['EditHerb'])) {
+                elseif (isset($_POST['DeleteStat'])) {
+                    $statid = $formData['status_id'];
+
                     // Prepare and execute SQL query
-                    $stmt = $this->pdo->prepare("UPDATE herbergen SET Naam = ?, Adres = ?, Email = ?, Telefoon = ?, Coordinaten = ? WHERE ID = ?;");
-                    $stmt->execute([$name, $adres, $email, $tel, $coordinates, $herbid]);
+                    $stmt = $this->pdo->prepare("DELETE FROM statussen WHERE ID = ?");
+                    $stmt->execute([$statid]);
 
                     // Provide message
-                    $_SESSION['success'] = "Herberg is bijgewerkt.";
+                    $_SESSION['success'] = "Status is verwijderd.";
                 }
-                elseif (isset($_POST['DeleteHerb'])) {
-                    // Prepare and execute SQL query
-                    $stmt = $this->pdo->prepare("DELETE FROM herbergen WHERE ID = ?");
-                    $stmt->execute([$herbid]);
-
-                    // Provide message
-                    $_SESSION['success'] = "Herberg is verwijderd.";
-                }
-    
-                // Redirect to client environment
                 header("Location: ../../donkey_client.php");
                 exit();
             } catch (PDOException $e) {
@@ -72,7 +73,7 @@
 
         // Empty Fields Check
         private function validateFormData(array $formData) {
-            $Fields = ['Naam', 'Adres', 'Email', 'Telefoon', 'Latlon'];
+            $Fields = ['StatusCode', 'Status'];
     
             foreach ($Fields as $field) {
                 if (empty($formData[$field])) {
@@ -90,7 +91,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             $db = new Database();
-            $multiProcessor = new Herberg($db);
+            $multiProcessor = new Status($db);
             $multiProcessor->processForm($_POST);
         } catch (Exception $e) {
             echo "Error: " . $e->getMessage();
