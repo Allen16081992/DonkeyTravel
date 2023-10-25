@@ -1,6 +1,6 @@
 <!-- Buttons for switching tables -->
 <div class="btn-group mb-3" role="group" aria-label="Table Selection">
-    <button type="button" class="btn btn-primary" data-toggle="table" data-target="#boekingTable">Boekingen</button>
+    <button type="button" class="btn btn-info" data-toggle="table" data-target="#boekingTable">Boekingen</button>
     <button type="button" class="btn btn-info" data-toggle="table" data-target="#herbergTable">Herbergen</button>
     <button type="button" class="btn btn-info" data-toggle="table" data-target="#klantTable">Klanten</button>
     <button type="button" class="btn btn-primary" data-toggle="table" data-target="#overnachtTable">Overnachting</button>

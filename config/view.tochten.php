@@ -33,9 +33,4 @@
 
     // Create an object from our class
     $viewTo = new viewTochten();
-
-    if (!isset($_POST['CreateBoek'])) {
-        $allTocht = $viewTo->viewTochtenInfo('tochten');
-    } else {
-        
-    }
+    $allTocht = $viewTo->viewTochtenInfo('tochten');

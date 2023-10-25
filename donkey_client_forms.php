@@ -74,16 +74,8 @@
                             <div class='form-group'>
                                 <label for='StartDatum'>Startdatum:</label>
                                 <input type='date' class='form-control' name='StartDatum' value='{$data['StartDatum']}' readonly>
-                            </div>
-                            <div class='form-group'>
-                                <label for='Tocht'>Tocht:</label>
-                                <select class='form-control' name='Tocht'>";
-                                // Loop through records
-                                foreach ($allTocht['records'] as $optionRecord) {
-                                    echo '<option value="' . $optionRecord['ID'] . '">' . $optionRecord['Route'] . '</option>';
-                                }
-                    echo "</select>
-                            </div>
+                            </div>";
+                    echo "
                             <button type='submit' class='btn btn-primary'>Verwijderen</button>
                             <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
@@ -483,28 +475,24 @@
                     echo "
                         <h3>Tracker Invoeren</h3>
                         <form action='#' method='post'>
-                            <input type='hidden' name='CreateTrack'>
+                            <input type='hidden' name='EditTrack'>
                             <div class='form-group'>
-                                <label for='startDate'>StartDatum:</label>
-                                <input type='date' class='form-control' name='startDate' placeholder='startDate'>
+                                <label for='Pincode'>Pincode:</label>
+                                <input type='tel' class='form-control' name='Pincode'>
                             </div>
                             <div class='form-group'>
-                                <label for='pincode'>PINCode:</label>
-                                <input type='text' class='form-control' name='pincode' placeholder='pincode'>
+                                <label for='Breedtegraad'>Breedtegraad:</label>
+                                <input type='text' class='form-control' name='Breedtegraad'>
                             </div>
                             <div class='form-group'>
-                                <label for='TochtenID'>Tochten ID:</label>
-                                <input type='text' class='form-control' name='TochtenID' placeholder='TochtenID'>
+                                <label for='Lengtegraad'>Lengtegraad:</label>
+                                <input type='text' class='form-control' name='Lengtegraad'>
                             </div>
                             <div class='form-group'>
-                                <label for='KlantenID'>Klanten ID:</label>
-                                <input type='text' class='form-control' name='KlantenID' placeholder='KlantenID'>
+                                <label for='Tijd'>Tijd:</label>
+                                <input type='text' class='form-control' name='Tijd'>
                             </div>
-                            <div class='form-group'>
-                                <label for='StatussenID'>Statussen ID:</label>
-                                <input type='text' class='form-control' name='StatussenID' placeholder='StatussenID'>
-                            </div>
-                            <button type='submit' class='btn btn-primary'>Verwijderen</button>
+                            <button type='submit' class='btn btn-primary'>Verzenden</button>
                             <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
