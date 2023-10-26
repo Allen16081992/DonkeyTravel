@@ -44,7 +44,7 @@
                         echo "<td>{$Brecord['ID']}</td>
                         <td>{$Brecord['StartDatum']}</td>";
                         echo '<td>
-                        <form action="#" method="post">
+                        <form action="config/pincode.config.php" method="post">
                             <input type="hidden" name="boek_id" value="'.$Brecord['ID'].'">
                             <button type="submit" name="getPIN" class="btn btn-outline-secondary btn-sm">Aanvragen</button>
                         </form>
