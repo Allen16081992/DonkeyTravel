@@ -48,11 +48,18 @@
                             <input type="hidden" name="boek_id" value="'.$Brecord['ID'].'">
                             <button type="submit" name="getPIN" class="btn btn-outline-secondary btn-sm">Aanvragen</button>
                         </form>
+                        </td>';
+                        echo "<td>
+                            <form action='#' method='post'>
+                                <input type='hidden' name='boek_id' value={$Brecord['FKstatussenID']}>
+                                <button type='submit' name='getPIN' class='btn btn-outline-secondary btn-sm'>{$Brecord['Route']}</button>
+                            </form>
                         </td>
-                        <td>'.$Brecord['Route'].'</td>
-                        <td></td>';
-                        //echo "<td>{$TOrecord['Route']}</td>";
-                        echo "<td>{$Brecord['FKstatussenID']}</td>";
+                        <td></td>";
+                        echo "<td>
+                        
+                        {$Brecord['FKstatussenID']}
+                        </td>";
                     
                         echo '<td>
                             <form action="donkey_client_forms.php" method="post">

@@ -4,15 +4,13 @@
             <button id="showMapBtn" type="button" class="btn btn-primary mx-sm-2 mb-2">Kaart</button>
         </div>
         <div class="mx-sm-4 mb-2">
-            <small id="mapHelp" class="form-text text-muted">Track een huifkar met coördinaten of stad, wijk, straat en zelfs bedrijfsnamen.</small>
+            <small id="mapHelp" class="form-text text-muted">Track een huifkar met Coördinaten, Plaatsen, Straatnamen en Bedrijfslocaties door gebruik te maken van  A+B, of op de map te klikken.</small>
         </div>
 
         <div id='map'></div>
     </div>
     <div id="menu">
         <input id="satellite-streets-v12" type="radio" name="rtoggle" value="satellite">
-        <!-- See a list of Mapbox-hosted public styles at -->
-        <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
         <label for="satellite-streets-v12">Satellite streets</label>
         <input id="streets-v12" type="radio" name="rtoggle" value="streets" checked="checked">
         <label for="streets-v12">streets</label>
