@@ -43,24 +43,30 @@
                         // Display specific columns
                         echo "<td>{$Brecord['ID']}</td>
                         <td>{$Brecord['StartDatum']}</td>";
-                        echo '<td>
-                        <form action="config/pincode.config.php" method="post">
-                            <input type="hidden" name="boek_id" value="'.$Brecord['ID'].'">
-                            <button type="submit" name="getPIN" class="btn btn-outline-secondary btn-sm">Aanvragen</button>
-                        </form>
-                        </td>';
+
+                        // Provide a Request-Pincode-Button if there is no Pincode
+                        echo '<td>';
+                            if (!isset($Brecord['PINCode'])) {
+                                echo '<form action="config/classes/pincode.config.php" method="post">
+                                    <input type="hidden" name="boek_id" value="'.$Brecord['ID'].'">
+                                    <button type="submit" name="setPIN" class="btn btn-outline-secondary btn-sm">Aanvragen</button>
+                                </form>';
+                            } else { 
+                                echo '<form action="config/classes/pincode.config.php" method="post">
+                                    <input type="hidden" name="boek_id" value="'.$Brecord['ID'].'">
+                                    <button type="submit" name="deletePIN" class="btn btn-outline-danger btn-sm">'.$Brecord['PINCode'].'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></button>
+                                </form>';
+                            }
+                        echo '</td>';
+
                         echo "<td>
                             <form action='#' method='post'>
-                                <input type='hidden' name='boek_id' value={$Brecord['FKstatussenID']}>
-                                <button type='submit' name='getPIN' class='btn btn-outline-secondary btn-sm'>{$Brecord['Route']}</button>
+                                <input type='hidden' name='boek_id' value={$Brecord['FKtochtenID']}>
+                                <button type='submit' name='getRoute' class='btn btn-outline-secondary btn-sm'>{$Brecord['Route']}</button>
                             </form>
                         </td>
                         <td></td>";
-                        echo "<td>
-                        
-                        {$Brecord['FKstatussenID']}
-                        </td>";
-                    
+                        echo "<td>{$Brecord['FKstatussenID']}</td>";
                         echo '<td>
                             <form action="donkey_client_forms.php" method="post">
                                 <input type="hidden" name="boek_id" value="'.$Brecord['ID'].'">
@@ -69,7 +75,7 @@
                             </form>
                             </td>
                         </tr>';
-                    }
+                    }                  
                 }
             ?>
         </tbody>

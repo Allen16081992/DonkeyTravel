@@ -1,5 +1,6 @@
 <?php // Dhr. Allen Pieter
-    require_once 'classes/database.class.php';
+    include_once 'session_management.class.php'; 
+    require_once 'database.class.php';
 
     class Pincode {
         // Properties //
@@ -16,9 +17,9 @@
             $boekid = $formData['boek_id'];
 
             // Create, Delete and Read-Search
-            if (isset($_POST['getPIN'])) {
-                // Generate a unique pin.
-                $code = bin2hex(random_bytes(4));
+            if (isset($_POST['setPIN'])) {
+                // Generate a unique 4-digit pin.
+                $code = mt_rand(1000, 9999);
 
                 // Prepare and execute SQL query
                 $stmt = $this->pdo->prepare("UPDATE boekingen SET PINCode = ? WHERE ID = ?;");
@@ -48,11 +49,25 @@
                 }
             }
             elseif (isset($_POST['loginPIN'])) {
+                // Absorb the submitted pincode
+                $pincode = $formData['PINCode'];
+                
+                // Prepare and execute SQL query
+                $stmt = $this->pdo->prepare('SELECT PINCode FROM boekingen WHERE PINCode = ? AND ID = ?;');
 
+                if(!$stmt->execute([$pincode, $boekid])) {
+                    // Provide message
+                    $_SESSION['error'] = 'Pincode inquisitie mislukt.';
+                    $stmt = null;
+                } else {
+                    // Provide message
+                    $_SESSION['success'] = "Welkom bij de LocatieTracker.";
+                    $stmt = null;
+                }
             }
             
             // Redirect to client environment
-            header("Location: ../donkey_client.php");
+            header("Location: ../../donkey_client.php");
             exit();
         }
     }

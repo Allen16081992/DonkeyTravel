@@ -1,15 +1,20 @@
+<?php include_once 'config/classes/session_management.class.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Donkey Travel - Adventure Awaits</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- DK Styling -->
+    <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 
 <!-- Header -->
 <?php include_once 'GUIwidgets/index_navbar.gui.php'; ?>
+<?php include_once 'config/server_messages.config.php'; ?>
 
 <!-- Banner Section -->
 <section class="jumbotron text-center">
