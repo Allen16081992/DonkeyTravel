@@ -1,7 +1,7 @@
 <!-- Buttons for switching tables -->
 <div class="btn-group mb-3" role="group" aria-label="Table Selection">
     <button type="button" class="btn btn-primary" data-toggle="table" data-target="#boekingTable">Boekingen</button>
-    <button type="button" class="btn btn-primary" data-toggle="table" data-target="#klantTable">Account</button>
+    <button type="button" class="btn btn-primary" data-toggle="table" data-target="#klantTable">Mijn Account</button>
 </div>
 
 <!-- Boekingen -->
@@ -41,11 +41,16 @@
                         echo "<tr>";
                         
                         // Display specific columns
-                        echo "<td>{$Brecord['ID']}</td>";
-                        echo "<td>{$Brecord['StartDatum']}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>";
+                        echo "<td>{$Brecord['ID']}</td>
+                        <td>{$Brecord['StartDatum']}</td>";
+                        echo '<td>
+                        <form action="#" method="post">
+                            <input type="hidden" name="boek_id" value="'.$Brecord['ID'].'">
+                            <button type="submit" name="getPIN" class="btn btn-outline-secondary btn-sm">Aanvragen</button>
+                        </form>
+                        </td>
+                        <td>'.$Brecord['Route'].'</td>
+                        <td></td>';
                         //echo "<td>{$TOrecord['Route']}</td>";
                         echo "<td>{$Brecord['FKstatussenID']}</td>";
                     
@@ -58,7 +63,6 @@
                             </td>
                         </tr>';
                     }
-                    
                 }
             ?>
         </tbody>

@@ -20,6 +20,21 @@ class viewBoekingen {
             $stmt->execute();
             $Brecords = $stmt->fetchAll();
 
+            // Dhr. Allen Pieter, needed for customers, display the route instead of ID.
+            // Fetch 'Route' data from 'tochten' based on 'Tochten' ID
+            foreach ($Brecords as &$record) {
+                $tochtenID = $record['FKtochtenID'];
+
+                $stmt = $this->pdo->prepare("SELECT Route FROM tochten WHERE ID = :id");
+                $stmt->bindParam(':id', $tochtenID, PDO::PARAM_INT);
+                $stmt->execute();
+                $route = $stmt->fetchColumn();
+
+                // Add 'Route' data to the record
+                $record['Route'] = $route;
+            }
+            // // // // // // // // // // // //
+
             return [
                 'columns' => $Bcolumns,
                 'records' => $Brecords,
