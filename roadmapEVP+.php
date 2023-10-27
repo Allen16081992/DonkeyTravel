@@ -1,20 +1,26 @@
+<?php // Dhr. Allen Pieter
+    include_once 'config/classes/session_management.class.php';
+    redirectUnauthorized(); 
+    require_once 'config/view.trackers.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Object Tracking with Mapbox</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Donkey Travel Follow Me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Mapbox -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
     <link rel="stylesheet" type="text/css" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" />
-
     <style>
         #map {
             height: 450px;
-            width: 50%;
+            width: 95%;
             margin:20px;
             border-radius: 15px;
             border-width: 5px;
@@ -30,8 +36,16 @@
     </style>
 </head>
 <body>
+    <!-- Widgets -->
+    <?php 
+        include_once 'GUIwidgets/client_main_navbar.gui.php'; 
 
-    <h1>Locatie Tracker</h1>
+    ?>
+    <!-- Table Controls -->
+    <div class="container mt-5">
+        <h2>FollowMe - Locatie Tracker <a href='donkey_client.php' class='btn btn-primary btn-sm'>PIN Uitloggen</a></h2>    
+    </div>
+
     <div class="mx-sm-4 mb-2">
         <small id="mapHelp" class="form-text text-muted">Track een huifkar met Coördinaten, Plaatsen, Straatnamen en Bedrijfslocaties door gebruik te maken van  A+B, of op de map te klikken.</small>
     </div>

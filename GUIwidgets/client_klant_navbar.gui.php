@@ -60,9 +60,9 @@
                         echo '</td>';
 
                         echo "<td>
-                            <form action='#' method='post'>
-                                <input type='hidden' name='boek_id' value={$Brecord['FKtochtenID']}>
-                                <button type='submit' name='getRoute' class='btn btn-outline-secondary btn-sm'>{$Brecord['Route']}</button>
+                            <form action='donkey_client_forms.php' method='post'>
+                                <input type='hidden' name='tocht_id' value={$Brecord['FKtochtenID']}>
+                                <button type='submit' name='loginPIN' class='btn btn-outline-secondary btn-sm'>{$Brecord['Route']}</button>
                             </form>
                         </td>
                         <td></td>";

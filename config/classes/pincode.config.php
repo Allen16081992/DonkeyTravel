@@ -22,7 +22,7 @@
                 $code = mt_rand(1000, 9999);
 
                 // Prepare and execute SQL query
-                $stmt = $this->pdo->prepare("UPDATE boekingen SET PINCode = ? WHERE ID = ?;");
+                $stmt = $this->pdo->prepare("UPDATE boekingen SET PINCode = ?, Status = 1 WHERE ID = ?;");
 
                 // If this fails, kick back to homepage.
                 if(!$stmt->execute([$code, $boekid])) {
@@ -36,7 +36,7 @@
             }
             elseif (isset($_POST['deletePIN'])) {
                 // Prepare and execute SQL query
-                $stmt = $this->pdo->prepare("UPDATE boekingen SET PINCode = NULL WHERE ID = ?;");
+                $stmt = $this->pdo->prepare("UPDATE boekingen SET PINCode = NULL, Status = 0 WHERE ID = ?;");
 
                 // If this fails, kick back to homepage.
                 if(!$stmt->execute([$boekid])) {
@@ -63,6 +63,10 @@
                     // Provide message
                     $_SESSION['success'] = "Welkom bij de LocatieTracker.";
                     $stmt = null;
+
+                    // Redirect to client environment
+                    header("Location: ../../roadmapEVP+.php");
+                    exit();
                 }
             }
             

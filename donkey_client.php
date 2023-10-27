@@ -30,9 +30,6 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>-->
 </head>
 <body>
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
-
     <!-- Widgets -->
     <?php include_once 'GUIwidgets/client_main_navbar.gui.php'; ?>
     <?php include_once 'config/server_messages.config.php'; ?>

@@ -60,8 +60,7 @@
         $rowID = $_POST['rest_id']; // You
         $tableName = 'restaurants';
         $data = $viewRowInfo->fetchRowData($tableName, $rowID);
-    } 
-    elseif (isset($_POST['EditStat']) || isset($_POST['DeleteStat'])) {
+    } elseif (isset($_POST['EditStat']) || isset($_POST['DeleteStat'])) {
         $rowID = $_POST['status_id']; // You
         $tableName = 'statussen';
         $data = $viewRowInfo->fetchRowData($tableName, $rowID);

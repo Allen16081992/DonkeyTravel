@@ -1,4 +1,5 @@
 <!-- Dhr. Allen Pieter -->
+<?php include_once 'config/classes/session_management.class.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -550,6 +551,21 @@
                             <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
                         </form>
                     ";
+                }
+                elseif (isset($_POST['loginPIN'])) {
+                    echo "
+                        <h3>Donkey Travel Follow Me Aanmelden</h3>
+                        <form action='config/classes/pincode.config.php' method='post'>
+                            <input type='hidden' name='loginPIN' value='{$_SESSION['klant_id']}'>
+                            <span>Let op: Vul NIET uw pincode van uw betaalpas in.</span>
+                            <div class='form-group'>
+                                <label for='Pincode'>Boeking Pincode:</label>
+                                <input type='tel' class='form-control' name='Pincode'>
+                            </div>
+                            <button type='submit' class='btn btn-primary'>Aanmelden</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Terug</a>
+                        </form>
+                    ";          
                 }
             ?>
             </div>
