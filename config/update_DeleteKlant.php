@@ -1,84 +1,94 @@
-<?php // Loubna Faress
-    include_once 'classes/session_management.class.php';
-    require_once 'classes/database.class.php'; 
+<?php
+include_once 'classes/session_management.class.php';
+require_once 'classes/database.class.php';
 
-    class updateKlant {
-        private $pdo;
+class updateKlant {
+    private $pdo;
 
-        public function __construct(Database $db) {
-            $this->pdo = $db->connect();
-        }
+    public function __construct(Database $db) {
+        $this->pdo = $db->connect();
+    }
 
-        public function processForm(array $formData) {
-            try {
-                $this->validateFormData($formData);
+    public function processForm(array $formData) {
+        try {
+            $this->validateFormData($formData);
 
-                // Haal formuliergegevens op
+            if (isset($_POST['Editklant'])) {
+                // Get form data
+                $klantid = $formData['klant_id'];
                 $name = $formData['Naam'];
-                $adres = $formData['Adres'];
                 $email = $formData['Email'];
                 $tel = $formData['Telefoon'];
-                $coordinates = $formData['Latlon'];
-                // voor update & delete
-                $klantid = $formData['klant_id'];
-                
-                if (isset($_POST['Editklant'])) {
-                // Bereid de SQL-query voor en voer deze uit
-                $stmt = $this->pdo->prepare("UPDATE klanten SET Naam = ?, Adres = ?, Email = ?, Telefoon = ?, Coordinaten = ? WHERE ID = ?;");
-                $stmt->execute([$name, $adres, $email, $tel, $coordinates, $klantid]);
+                $wachtwoord = $formData['Wachtwoord'];
 
-                // succes melding wordt weergegeven
-                $_SESSION['success'] = "klant is bijgewerkt.";
-                }
-                elseif (isset($_POST['Deleteklant'])) {
-                // Bereid de SQL-query voor en voer deze uit
-                $stmt = $this->pdo->prepare("DELETE FROM klanten WHERE ID = ?");
-                $stmt->execute([$klantid]);
+                // Prepare and execute the SQL query to update customer data
+                $stmt = $this->pdo->prepare("UPDATE klanten SET Naam = ?, Email = ?, Telefoon = ?, Wachtwoord = ? WHERE ID = ?");
+                $stmt->execute([$name, $email, $tel, $klantid]);
 
-                // werkt het? succes melding wordt weergegeven
-                $_SESSION['success'] = "klant verwijderd.";
-                } 
+                // Success message
+                $_SESSION['success'] = "Klant is bijgewerkt.";
+            } elseif (isset($_POST['Deleteklant'])) {
+                // Handle customer deletion here
+                // Prepare and execute the SQL query to delete the customer
+                // ...
 
-                // zo niet? wordt er een error weergegeven
-                else {
-                    $_SESSION['error'] = "No Read functionality.";
-                }
-                
-                // Optioneel, je kunt doorverwijzen naar een succespagina of andere acties uitvoeren
-                header("Location: ../donkey_client.php");
-                exit();
+                // Success message
+                $_SESSION['success'] = "Klant verwijderd.";
+            } else {
+                $_SESSION['error'] = "No valid action selected.";
+            }
 
-            }  catch (PDOException $e) {
-                // Registreer de fout
-                error_log("PDO Exception: " . $e->getMessage());
-                
-                // Geef de gebruiker een generieke foutmelding
-                $_SESSION['error'] = "Database inquisitie mislukt.";
-            } catch (Exception $e) {
-                // Log the error
-                error_log("Exception: " . $e->getMessage());
-                
-                // Geef de gebruiker een generieke foutmelding
-                $_SESSION['error'] = "Database inquisitie mislukt.";
-            } 
+            // Redirect to a success page or perform other actions
+            header("Location: ../donkey_client.php");
+            exit();
+        } catch (PDOException $e) {
+            // Log and display a database error
+            $_SESSION['error'] = "Database query failed: " . $e->getMessage();
+            header("Location: ../donkey_client.php");
+            exit();
         }
     }
 
-    // Gebruik
+    private function validateFormData(array $formData) {
+        // You can add validation logic here as needed
+        if (empty($formData['Naam'])) {
+            $_SESSION['error'] = "Vul een naam in!";
+            header("Location: ../donkey_client.php");
+            exit();
+        }
+        // Add validation for other fields
 
-    //  reageert op een POST-verzoek en behandelt een update van klantgegevens.
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        try {
-            // maakt een databaseverbinding
-            $db = new Database();
-            $multiProcessor = new updateKlant($db);
+        if (empty($formData['Email'])) {
+            $_SESSION['error'] = "Vul een email in!";
+            header("Location: ../donkey_client.php");
+            exit();
+        }
 
-            // de methode "processForm" van de POST-gegevens wordt aangeroepen
-            $multiProcessor->processForm($_POST);
+        if (empty($formData['Telefoon'])) {
+            $_SESSION['error'] = "Vul een telefoon in!";
+            header("Location: ../donkey_client.php");
+            exit();
+        }
 
-            // fouten worden afgehandeld en als foutmelding weergegeven 
-        } catch (Exception $e) {
-            echo "Error: " . $e->getMessage();
+        if (empty($formData['Wachtwoord'])) {
+            $_SESSION['error'] = "Vul een wachtwoord in!";
+            header("Location: ../donkey_client.php");
+            exit();
         }
     }
+
+    
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    try {
+        $db = new Database();
+        $multiProcessor = new updateKlant($db);
+        $multiProcessor->processForm($_POST);
+    } catch (Exception $e) {
+        $_SESSION['error'] = "Error: " . $e->getMessage();
+        header("Location: ../donkey_client.php");
+        exit();
+    }
+}
 ?>

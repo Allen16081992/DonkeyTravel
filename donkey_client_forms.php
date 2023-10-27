@@ -176,20 +176,20 @@
                 if (isset($_POST['EditKlant'])) {
                     echo "
                         <h3>Account Wijzigen</h3>
-                        <form action='#' method='post'>
+                        <form action='config/update_DeleteKlant.php' method='post'>
                             <input type='hidden' name='EditKlant'>
                             <input type='hidden' name='klant_id' value='".(isset($data['ID']) ? $data['ID'] : $_SESSION["klant_id"])."'>
                             <div class='form-group'>
                                 <label for='Naam'>Naam:</label>
-                                <input type='text' class='form-control' name='Naam' placeholder='{$data['Naam']}'>
+                                <input type='text' class='form-control' name='Naam' value='{$data['Naam']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='Email'>Emailadres:</label>
-                                <input type='email' class='form-control' name='Email' placeholder='{$data['Email']}'>
+                                <input type='email' class='form-control' name='Email' value='{$data['Email']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='Telefoon'>Telefoonnummer:</label>
-                                <input type='tel' class='form-control' name='Telefoon' placeholder='{$data['Telefoon']}'>
+                                <input type='tel' class='form-control' name='Telefoon' value='{$data['Telefoon']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='Wachtwoord'>Wachtwoord:</label>
@@ -203,20 +203,20 @@
                 elseif (isset($_POST['DeleteKlant'])) {        
                     echo "
                         <h3>Account Verwijderen</h3>
-                        <form action='#' method='post'>
+                        <form action='config/update_DeleteKlant.php' method='post'>
                             <input type='hidden' name='DeleteKlant'>
                             <input type='hidden' name='klant_id' value='".(isset($data['ID']) ? $data['ID'] : $_SESSION["klant_id"])."'>
                             <div class='form-group'>
                                 <label for='Naam'>Naam:</label>
-                                <input type='text' class='form-control' name='Naam' placeholder='{$data['Naam']}' readonly>
+                                <input type='text' class='form-control' name='Naam' value='{$data['Naam']}' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='Email'>Emailadres:</label>
-                                <input type='email' class='form-control' name='Email' placeholder='{$data['Email']}' readonly>
+                                <input type='email' class='form-control' name='Email' value='{$data['Email']}' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='Telefoon'>Telefoonnummer:</label>
-                                <input type='tel' class='form-control' name='Telefoon' placeholder='{$data['Telefoon']}' readonly>
+                                <input type='tel' class='form-control' name='Telefoon' value='{$data['Telefoon']}' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='Wachtwoord'>Wachtwoord:</label>
