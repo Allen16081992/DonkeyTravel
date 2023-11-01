@@ -21,8 +21,8 @@
             $Wachtwoord = $this->getWachtwoord();
 
             $sql = $connect->prepare(
-                "INSERT INTO klanten(Naam, Email, Telefoon, Wachtwoord)
-                 VALUES (:Naam, :Email, :Telefoon, :Wachtwoord);"
+                "INSERT INTO klanten(Naam, Email, Telefoon, Wachtwoord, role)
+                 VALUES (:Naam, :Email, :Telefoon, :Wachtwoord, 0);"
             );
 
             $sql->bindParam(":Naam", $Naam);

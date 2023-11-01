@@ -8,7 +8,6 @@
 
         // Khaqan Ul Haq Awan
         // echo "Klant is aangemaakt";
-
         // Dhr. Allen Pieter, betere notificatie
         // Welkomst bericht
         echo "<!DOCTYPE html>

@@ -38,15 +38,13 @@
     <div class="container mt-5">
         <h2>Overzicht</h2>
         <?php 
-            if (isset($_SESSION['ID']) && isset($_SESSION['admin'])) {
+            if (isset($_SESSION['klant_id']) && $_SESSION['role'] == 1) {
                 include_once 'GUIwidgets/client_admin_navbar.gui.php'; 
-                // GPS-Tracking
-                include_once 'GUIwidgets/client_navigate.gui.php';
-            } else { 
+            } else {
                 include_once 'GUIwidgets/client_klant_navbar.gui.php'; 
-                // GPS-Tracking
-                include_once 'GUIwidgets/client_navigate.gui.php';
             }
+            // GPS-Tracking
+            include_once 'GUIwidgets/client_navigate.gui.php';
         ?>        
     </div>
 

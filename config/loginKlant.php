@@ -14,7 +14,7 @@
         // zoekt klant uit de database,  
         public function loginKlant($Naam, $Wachtwoord) {
             try {
-                $stmt = $this->pdo->prepare('SELECT ID, Naam FROM klanten WHERE Naam = ? AND Wachtwoord = ?;');
+                $stmt = $this->pdo->prepare('SELECT ID, Naam, role FROM klanten WHERE Naam = ? AND Wachtwoord = ?;');
 
                 // voert het uit,
                 $stmt->execute([$Naam, $Wachtwoord]);
@@ -31,6 +31,7 @@
             if ($klantID) {
                 $_SESSION['klant_id'] = $klantID['ID'];
                 $_SESSION['klant_naam'] = $klantID['Naam'];
+                $_SESSION['role'] = $klantID['role'];
                 // succesbericht wordt weergegeven als het gelukt is
                 $_SESSION['success'] = "U bent ingelogd";
 

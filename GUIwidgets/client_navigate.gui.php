@@ -9,12 +9,12 @@
 
         <div id='map'></div>
     </div>
-    <div id="menu">
+    <!--<div id="menu">
         <input id="satellite-streets-v12" type="radio" name="rtoggle" value="satellite">
         <label for="satellite-streets-v12">Satellite streets</label>
         <input id="streets-v12" type="radio" name="rtoggle" value="streets" checked="checked">
         <label for="streets-v12">streets</label>
         <input id="outdoors-v12" type="radio" name="rtoggle" value="outdoors">
         <label for="outdoors-v12">outdoors</label>
-    </div>
+    </div>-->
 </div>
