@@ -76,5 +76,5 @@ function initializeMap() {
     map.addControl(new mapboxgl.NavigationControl());
 }
 
-// Initialise Everything!!!
+// Initialise
 document.addEventListener("DOMContentLoaded", initializeMap);

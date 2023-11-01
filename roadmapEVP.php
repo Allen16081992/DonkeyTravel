@@ -1,3 +1,7 @@
+<?php 
+    include_once 'config/classes/session_management.class.php'; 
+    redirectUnauthorized();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +12,8 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
     <style>
         #map {
-            height: 400px;
-            width: 50%;
+            height: 500px;
+            width: 60%;
             margin:20px;
             border-radius: 15px;
             border-width: 5px;
@@ -25,12 +29,15 @@
     </style>
 </head>
 <body>
+    <!-- Widgets -->
+    <?php include_once 'GUIwidgets/client_main_navbar.gui.php'; ?>
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 
-    <h1>Locatie Tracker</h1>
+    <h1>Locatie Zoekfunctie</h1>
+    <a href='donkey_client.php' class='btn btn-primary'>Terug</a>
     <div class="mx-sm-4 mb-2">
-        <small id="mapHelp" class="form-text text-muted">Track een huifkar met coördinaten of stad, wijk, straat en zelfs bedrijfsnamen.</small>
+        <small id="mapHelp" class="form-text text-muted">Vindt een Stad of straat in het zoekveld.</small>
     </div>
 
     <div id='map'></div>

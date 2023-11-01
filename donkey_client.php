@@ -63,9 +63,12 @@
         });
     </script>
     <script>
+        function redirectToRoadmap() {
+            window.location.href = 'roadmapEVP.php';
+        };
         document.getElementById('showMapBtn').addEventListener('click', function() {
             var map = document.getElementById('map');
-            var menu = document.getElementById('menu');
+            //var menu = document.getElementById('menu');
 
             if (map.style.opacity === '0') {
                 map.style.opacity = '1';

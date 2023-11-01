@@ -1,10 +1,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="mb-2">
-            <button id="showMapBtn" type="button" class="btn btn-primary mx-sm-2 mb-2">Kaart</button>
+            <button id="showFindBtn" type="button" class="btn btn-primary mx-sm-2 mb-2" onclick="redirectToRoadmap()">Vind een locatie</button>
+            <button id="showMapBtn" type="button" class="btn btn-primary mx-sm-2 mb-2">Vind een Route</button>
         </div>
         <div class="mx-sm-4 mb-2">
-            <small id="mapHelp" class="form-text text-muted">Track een huifkar met Coördinaten, Plaatsen, Straatnamen en Bedrijfslocaties door gebruik te maken van  A+B, of op de map te klikken.</small>
+            <small id="mapHelp" class="form-text text-muted">Track een huifkar met Coördinaten, Plaatsen, Straatnamen en Bedrijfslocaties door gebruik te maken van  A+B, of ergens op de map te klikken.</small>
         </div>
 
         <div id='map'></div>
