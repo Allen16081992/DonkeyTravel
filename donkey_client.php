@@ -8,6 +8,7 @@
     require_once 'config/view.status.php';
     require_once 'config/fetchKlant.php';
     require_once 'config/view.restaurant.php';
+    require_once 'config/view.overnachtingen.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
