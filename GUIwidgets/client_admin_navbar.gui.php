@@ -273,7 +273,7 @@
                             <th>FKstatussenID</th>
                         ";
                     } else {
-                        foreach ($allInfo['columns'] as $Pcolumn) {
+                        foreach ($allPauze['columns'] as $Pcolumn) {
                             echo "<th>$Pcolumn</th>";
                         }
                     }
@@ -306,12 +306,10 @@
                         echo "<tr>";
                         foreach ($allPauze['columns'] as $Pcolumn) {
                             echo "<td>{$Precord[$Pcolumn]}</td>";
-                            echo "
-                                <td></td>
-                                <td></td>
-                            ";
                         }
-                        echo '<td>
+                        echo '<td></td>
+                        <td></td>
+                        <td>
                             <form action="donkey_client_forms.php" method="post">
                                 <input type="hidden" name="pauze_id" value="'.$Precord['ID'].'">
                                 <button type="submit" name="EditPauze" class="btn btn-outline-secondary btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16"><path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></button>

@@ -404,6 +404,90 @@
                         </form>
                     ";
                 }
+                if (isset($_POST['CreatePauze'])) {
+                    echo "
+                        <h3>Status Aanmaken</h3>
+                        <form action='config/classes/status.config.php' method='post'>
+                            <input type='hidden' name='AddPauze'>
+                            <div class='form-group'>
+                                <label for='StatusCode'>Status Code:</label>
+                                <input type='tel' class='form-control' name='StatusCode' placeholder='Statuscode'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Status'>Status:</label>
+                                <input type='text' class='form-control' name='Status' placeholder='Offerte'>
+                            </div>
+                            <div class='form-group'>
+                                <input type='checkbox' name='Verwijderbaar'>
+                                <label for='Verwijderbaar'>Verwijderbaar:</label>
+                            </div>
+                            <div class='form-group'>
+                                <input type='checkbox' name='PIN'>
+                                <label for='PIN'>PIN Toekennen:</label>
+                            </div>
+                            <button type='submit' class='btn btn-primary'>Bewaren</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
+                        </form>
+                    ";
+                }
+                elseif (isset($_POST['EditPauze'])) {        
+                    echo "
+                        <h3>Status Wijzigen</h3>
+                        <form action='#' method='post'>
+                            <input type='hidden' name='EditPauze'>
+                            <input type='hidden' name='status_id' value='{$data['ID']}'>
+                            <div class='form-group'>
+                                <label for='StatusCode'>Status Code:</label>
+                                <input type='tel' class='form-control' name='StatusCode' value='{$data['FKboekingenID']}'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Status'>Status:</label>
+                                <input type='text' class='form-control' name='Status' value='{$data['FKrestaurantsID']}'>
+                            </div>
+                            <div class='form-group'>
+                                <input type='checkbox' name='Verwijderbaar' value='{$data['FKstatussenID']}'>
+                                <label for='Verwijderbaar'>Verwijderbaar</label>
+                            </div>
+                            <div class='form-group'>
+                                <input type='checkbox' name='PIN' value='1'>
+                                <label for='PIN'>PIN Toekennen</label>
+                            </div>
+                            <button type='submit' class='btn btn-primary'>Wijzigen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
+                        </form>
+                    ";
+                }
+                elseif (isset($_POST['DeletePauze'])) {
+                    echo "
+                        <h3>Status Verwijderen</h3>
+                        <form action='#' method='post'>
+                            <input type='hidden' name='DeletePauze'>
+                            <input type='hidden' name='status_id' value='{$data['ID']}'>
+                            <div class='form-group'>
+                                <label for='StatusCode'>Status Code:</label>
+                                <input type='tel' class='form-control' name='StatusCode' value='{$data['FKboekingenID']}' readonly>
+                            </div>
+                            <div class='form-group'>
+                                <label for='Status'>Status:</label>
+                                <input type='text' class='form-control' name='Status' value='{$data['FKrestaurantsID']}' readonly>
+                            </div>
+                            <div class='form-group'>
+                                <input type='hidden' name='Verwijderbaar'> 
+                                <label for='Verwijderbaar'>Verwijderbaar:</label>";
+                                if (isset($data['Verwijderbaar'])) { echo ' <strong>Ja</strong>'; } else { echo ' <strong>Nee</strong>'; };
+                        echo"
+                            </div>
+                            <div class='form-group'>
+                                <input type='hidden' name='PIN'>
+                                <label for='PIN'>PIN Toegekend:</label>";
+                        if (isset($data['Verwijderbaar'])) { echo ' <strong>Ja</strong>'; } else { echo ' <strong>Nee</strong>'; };
+                        echo"
+                            </div>
+                            <button type='submit' class='btn btn-primary'>Verwijderen</button>
+                            <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>
+                        </form>
+                    ";
+                }
                 if (isset($_POST['CreateTocht'])) {
                     echo "
                         <h3>Tochten Invoeren</h3>
@@ -510,11 +594,11 @@
                             </div>
                             <div class='form-group'>
                                 <label for='Breedtegraad'>Breedtegraad:</label>
-                                <input type='text' class='form-control' name='Breedtegraad' value='{$data['Lat']}'>
+                                <input type='text' class='form-control' name='Breedtegraad' value='{$data['StartLat']},{$data['StartLon']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='Lengtegraad'>Lengtegraad:</label>
-                                <input type='text' class='form-control' name='Lengtegraad' value='{$data['Lon']}'>
+                                <input type='text' class='form-control' name='Lengtegraad' value='{$data['EndLat']},{$data['EndLon']}'>
                             </div>
                             <div class='form-group'>
                                 <label for='Tijd'>Tijd:</label>
@@ -537,11 +621,11 @@
                             </div>
                             <div class='form-group'>
                                 <label for='Breedtegraad'>Breedtegraad:</label>
-                                <input type='text' class='form-control' name='Breedtegraad' value='{$data['Lat']}' readonly>
+                                <input type='text' class='form-control' name='Breedtegraad' value='{$data['StartLat']},{$data['StartLon']}' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='Lengtegraad'>Lengtegraad:</label>
-                                <input type='text' class='form-control' name='Lengtegraad' value='{$data['Lon']}' readonly>
+                                <input type='text' class='form-control' name='Lengtegraad' value='{$data['EndLat']},{$data['EndLon']}' readonly>
                             </div>
                             <div class='form-group'>
                                 <label for='Tijd'>Tijd:</label>

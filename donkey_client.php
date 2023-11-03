@@ -9,6 +9,7 @@
     require_once 'config/fetchKlant.php';
     require_once 'config/view.restaurant.php';
     require_once 'config/view.overnachtingen.php';
+    require_once 'config/view.pauzeplaatsen.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
