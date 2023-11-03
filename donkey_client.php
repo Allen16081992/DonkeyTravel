@@ -5,7 +5,7 @@
     require_once 'config/view.herberg.php';
     require_once 'config/view.tochten.php';
     require_once 'config/view.trackers.php';
-    require_once 'config/fetchStatus.php';
+    require_once 'config/view.status.php';
     require_once 'config/fetchKlant.php';
     require_once 'config/view.restaurant.php';
 ?>
