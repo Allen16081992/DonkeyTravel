@@ -234,24 +234,24 @@
                         <form action='config/create.restaurant.php' method='post'>
                             <input type='hidden' name='CreateRest'>
                             <div class='form-group'>
-                                <label for='name'>Naam:</label>
-                                <input type='text' class='form-control' name='name' placeholder='Name'>
+                                <label for='Naam'>Naam:</label>
+                                <input type='text' class='form-control' name='Naam' placeholder='Naam'>
                             </div>
                             <div class='form-group'>
-                                <label for='adres'>Adres:</label>
-                                <input type='text' class='form-control' name='adres' placeholder='Adres'>
+                                <label for='Adres'>Adres:</label>
+                                <input type='text' class='form-control' name='Adres' placeholder='Adres'>
                             </div>
                             <div class='form-group'>
-                                <label for='email'>Emailadres:</label>
-                                <input type='email' class='form-control' name='email' placeholder='Email'>
+                                <label for='Email'>Emailadres:</label>
+                                <input type='Email' class='form-control' name='Email' placeholder='Email'>
                             </div>
                             <div class='form-group'>
-                                <label for='phone'>Mobiel telefoonnummer:</label>
-                                <input type='tel' class='form-control' name='phone' placeholder='Phone'>
+                                <label for='Telefoon'>Mobiel telefoonnummer:</label>
+                                <input type='telefoon' class='form-control' name='Telefoon' placeholder='Telefoon'>
                             </div>
                             <div class='form-group'>
-                                <label for='coordinates'>Coördinaten:</label>
-                                <input type='text' class='form-control' name='coordinates' placeholder='coordinates'>
+                                <label for='Coordinaten'>Coördinaten:</label>
+                                <input type='text' class='form-control' name='Coordinaten' placeholder='Coordinaten'>
                             </div>
                             <button type='submit' class='btn btn-primary'>Verzenden</button>
                             <a href='donkey_client.php' class='btn btn-primary'>Annuleren</a>

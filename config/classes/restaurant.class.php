@@ -87,6 +87,25 @@ class restaurants extends Database
         $sql->bindParam(":Coordinaten", $Coordinaten);
         $sql->execute();
 
+        $this->afdrukkenrestaurant();
+
+
+    }
+
+    public function deleterestaurant()
+    {
+        $ID = $this->getID();
+        $connection = $this->connect();
+        $sql = $connection->prepare
+        (
+            "DELETE from restaurants
+                  where ID=:ID"
+        );
+
+        $sql->bindParam(":ID", $ID);
+        $sql->execute();
+
+        $this->afdrukkenrestaurant();
 
     }
 
