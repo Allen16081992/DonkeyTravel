@@ -64,7 +64,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/config/fetchKlant.php</url>
+          <url>file://$PROJECT_DIR$/config/view.klanten.php</url>
           <line>25</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>

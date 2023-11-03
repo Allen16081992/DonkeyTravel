@@ -6,7 +6,7 @@
     require_once 'config/view.tochten.php';
     require_once 'config/view.trackers.php';
     require_once 'config/view.status.php';
-    require_once 'config/fetchKlant.php';
+    require_once 'config/view.klanten.php';
     require_once 'config/view.restaurant.php';
     require_once 'config/view.overnachtingen.php';
     require_once 'config/view.pauzeplaatsen.php';

@@ -10,7 +10,9 @@ class restaurants extends Database
     private $Telefoon;
     private $Coordinaten;
 
-    public function __construct($ID = NULL, $Naam = NULL, $Email = NULL, $Telefoon = NULL, $Adres = NULL, $Coordinaten = NULL)
+    // Dhr. Allen Pieter: Weg met die NULL onzin! Anders blijft hij in de database de cellen leeghalen.
+    //public function __construct($ID = NULL, $Naam = NULL, $Adres = NULL, $Email = NULL, $Telefoon = NULL, $Coordinaten = NULL)
+    public function __construct($ID, $Naam, $Adres, $Email, $Telefoon, $Coordinaten)
     {
         $this->ID = $ID;
         $this->Naam = $Naam;
@@ -40,33 +42,15 @@ class restaurants extends Database
         $sql->bindParam(":Coordinaten", $Coordinaten);
         $sql->execute();
     }
-    public function readrestaurant()
-    {
-        try {
-            $connection = $this->connect();
-            $sql = $connection->prepare("
-            SELECT *
-            FROM restaurants");
-            $sql->execute();
+    
+    // Overgenomen door view.restaurant.php
+    //public function readrestaurant()
 
-            foreach ($sql as $restaurant) {
-                echo $restaurant["ID"];
-                echo $restaurant["Naam"];
-                echo $restaurant["Adres"];
-                echo $restaurant["Email"];
-                echo $restaurant["Telefoon"];
-                echo $restaurant["Coordinaten"];
-            }
-        } catch (PDOException $e) {
-            // Handle the exception (e.g., log the error or display a user-friendly message)
-            die("Error: " . $e->getMessage());
-        }
-    }
-
-    public function updaterestaurant($ID)
+    public function updaterestaurant()
     {
         $connection = $this->connect();
 
+        $ID = $this->getID();
         $Naam = $this->getNaam();
         $Adres = $this->getAdres();
         $Email = $this->getEmail();
@@ -195,8 +179,6 @@ class restaurants extends Database
         $this->Coordinaten = $Coordinaten;
     }
 
-
-
     public function getID()
     {
         return $this->ID;
@@ -206,6 +188,4 @@ class restaurants extends Database
     {
         $this->ID = $ID;
     }
-
-
 }

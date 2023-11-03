@@ -4,7 +4,7 @@
     <button type="button" class="btn btn-info" data-toggle="table" data-target="#herbergTable">Herbergen</button>
     <button type="button" class="btn btn-info" data-toggle="table" data-target="#klantTable">Klanten</button>
     <button type="button" class="btn btn-info" data-toggle="table" data-target="#overnachtTable">Overnachting</button>
-    <button type="button" class="btn btn-primary" data-toggle="table" data-target="#pauzeTable">Pauzeplaats</button>
+    <button type="button" class="btn btn-info" data-toggle="table" data-target="#pauzeTable">Pauzeplaats</button>
     <button type="button" class="btn btn-info" data-toggle="table" data-target="#restaurantsTable">Restaurants</button>
     <button type="button" class="btn btn-info" data-toggle="table" data-target="#statusTable">Statussen</button>
     <button type="button" class="btn btn-info" data-toggle="table" data-target="#tochtTable">Tochten</button>

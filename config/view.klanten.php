@@ -1,7 +1,7 @@
 <?php // Loubna Faress
     require_once 'classes/database.class.php';
 
-    class fetchKlant {
+    class viewKlant {
         private $pdo;
 
         public function __construct() {
@@ -32,6 +32,6 @@
     }
 
     // Create an object from our class
-    $viewFk = new fetchKlant();
+    $viewFk = new viewKlant();
     $allKlant = $viewFk->fetchKlantInfo('klanten');
 ?>

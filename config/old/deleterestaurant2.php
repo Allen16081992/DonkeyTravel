@@ -9,9 +9,10 @@
 <?php
 require_once "classes/restaurant.class.php";
 
-$ID = $_POST["ID"];
-$ID1 = new restaurants($ID);
-$ID1->searchrestaurant();
+// searchrestaurant() is overgenomen door view.RowInfo.php
+//$ID = $_POST["ID"];
+//$ID1 = new restaurants($ID);
+//$ID1->searchrestaurant();
 ?>
 
 <form action="deleterestaurant3.php" method="post">
