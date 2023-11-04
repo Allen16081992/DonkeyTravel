@@ -14,12 +14,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#registrationModal">Account Maken</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Over Ons</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
             </ul>
         </div>
     </nav>
