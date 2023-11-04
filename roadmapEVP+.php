@@ -1,6 +1,7 @@
 <?php // Dhr. Allen Pieter
     include_once 'config/classes/session_management.class.php';
     redirectUnauthorized(); 
+    require_once 'config/view.boekingen.php';
     require_once 'config/view.trackers.php';
 ?>
 <!DOCTYPE html>
@@ -39,11 +40,48 @@
     <!-- Widgets -->
     <?php 
         include_once 'GUIwidgets/client_main_navbar.gui.php'; 
-
+        if (isset ($allBoek)) {
+            echo "
+                <table class='table table-hover table-bordered table-striped'>
+                    <thead class='table-success'>
+                        <tr>
+                            <th>Uw Tochten Overzicht</th>
+                            <th><a href='donkey_client.php' class='btn btn-primary btn-sm'>PIN Uitloggen</a></th>
+                        </tr>
+                    </thead>
+            ";
+            foreach ($allBoek['records'] as $Brecord) {
+                echo "
+                    <tbody>
+                        <td>{$Brecord['Route']}<td>
+                    </tbody>
+                ";
+            }
+            echo "</table>";
+        }
+        if (isset($allTrack)) {
+            foreach ($allTrack['records'] as $TRrecord) {
+                // Display specific columns
+                echo "
+                    <table class='table table-hover table-bordered table-striped'>
+                        <thead class='table-success'>
+                            <tr>
+                                <th>Start Locatie</th>
+                                <th>Eind Locatie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <td>{$TRrecord['StartLat']},{$TRrecord['StartLon']}</td>
+                            <td>{$TRrecord['EndLat']},{$TRrecord['EndLon']}</td>
+                        </tbody>
+                    </table>
+                ";
+            }
+        }
     ?>
     <!-- Table Controls -->
     <div class="container mt-5">
-        <h2>FollowMe - Locatie Tracker <a href='donkey_client.php' class='btn btn-primary btn-sm'>PIN Uitloggen</a></h2>    
+        <h2>FollowMe - Locatie Tracker</h2>    
     </div>
 
     <div class="mx-sm-4 mb-2">
