@@ -38,9 +38,15 @@
                 // de gebruiker wordt doorgestuurd naar 'donkey_client.php' de klant pagina
                 header('location: ../donkey_client.php');
                 exit();
+
                 // bestaat het niet? wordt er een error weergegeven
             } else {
-                echo "Login failed. Invalid credentials.";
+                // foutmelding bij niet gevonden.
+                $_SESSION['error'] = "Deze gebruiker bestaat niet.";
+
+                // Ga naar homepage
+                header('location: ../index.php');
+                exit();
             }
         }
     }
