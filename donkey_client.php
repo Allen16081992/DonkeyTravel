@@ -42,11 +42,36 @@
         <?php 
             if (isset($_SESSION['klant_id']) && $_SESSION['role'] == 1) {
                 include_once 'GUIwidgets/client_admin_navbar.gui.php'; 
+                echo '
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="mb-2">
+                                <button id="showFindBtn" type="button" class="btn btn-primary mx-sm-2 mb-2" onclick="redirectToRoadmap()">Vind een locatie</button>
+                                <button id="showMapBtn" type="button" class="btn btn-primary mx-sm-2 mb-2">Vind een Route</button>
+                            </div>
+                            <div class="mx-sm-4 mb-2">
+                                <small id="mapHelp" class="form-text text-muted">Track een huifkar met Coördinaten, Plaatsen, Straatnamen en Bedrijfslocaties door gebruik te maken van  A+B, of ergens op de map te klikken.</small>
+                            </div>
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                ';
             } else {
                 include_once 'GUIwidgets/client_klant_navbar.gui.php'; 
+                echo '
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="mb-2">
+                                <button id="showFindBtn" type="button" class="btn btn-primary mx-sm-2 mb-2" onclick="redirectToRoadmap()">Vind een locatie</button>
+                            </div>
+                            <div class="mx-sm-4 mb-2">
+                                <small id="mapHelp" class="form-text text-muted">Track een huifkar met Coördinaten, Plaatsen, Straatnamen en Bedrijfslocaties door gebruik te maken van  A+B, of ergens op de map te klikken.</small>
+                            </div>
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                ';
             }
-            // GPS-Tracking
-            include_once 'GUIwidgets/client_navigate.gui.php';
         ?>        
     </div>
 
