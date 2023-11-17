@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 03 nov 2023 om 13:20
+-- Gegenereerd op: 17 nov 2023 om 21:45
 -- Serverversie: 10.4.28-MariaDB
 -- PHP-versie: 8.2.4
 
@@ -29,20 +29,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `boekingen` (
   `ID` int(11) NOT NULL,
-  `StartDatum` date DEFAULT NULL,
-  `PINCode` int(11) DEFAULT NULL,
+  `StartDatum` date NOT NULL,
+  `PINCode` int(11) NOT NULL,
   `FKtochtenID` int(11) NOT NULL,
   `FKklantenID` int(11) NOT NULL,
   `FKstatussenID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Gegevens worden geëxporteerd voor tabel `boekingen`
---
-
-INSERT INTO `boekingen` (`ID`, `StartDatum`, `PINCode`, `FKtochtenID`, `FKklantenID`, `FKstatussenID`) VALUES
-(2, '2023-08-06', 3266, 3, 2, 1),
-(3, '2023-11-30', NULL, 1, 1, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -55,8 +47,8 @@ CREATE TABLE `herbergen` (
   `Naam` varchar(50) NOT NULL,
   `Adres` varchar(50) NOT NULL,
   `Email` varchar(100) NOT NULL,
-  `Telefoon` varchar(20) NOT NULL,
-  `Coordinaten` varchar(50) NOT NULL
+  `Telefoon` varchar(50) NOT NULL,
+  `Coordinaten` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
@@ -64,7 +56,8 @@ CREATE TABLE `herbergen` (
 --
 
 INSERT INTO `herbergen` (`ID`, `Naam`, `Adres`, `Email`, `Telefoon`, `Coordinaten`) VALUES
-(1, 'Waalse Herberg', 'Piscaderalaan 25', 'dk_waalherberg@info.com', '0104666876', '12.4890');
+(4, 'Herberg 4', 'Lagedwarsstraat 5', 'info@herbergdk3.nl', '1234567890', '123456789'),
+(5, 'Sex 3', 'Nassaustraat 6', 'info@lollipop.nl', '1234567890', '123456789');
 
 -- --------------------------------------------------------
 
@@ -76,8 +69,8 @@ CREATE TABLE `klanten` (
   `ID` int(11) NOT NULL,
   `Naam` varchar(50) NOT NULL,
   `Email` varchar(100) NOT NULL,
-  `Wachtwoord` varchar(255) NOT NULL,
   `Telefoon` varchar(20) NOT NULL,
+  `Wachtwoord` varchar(255) NOT NULL,
   `role` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -85,10 +78,9 @@ CREATE TABLE `klanten` (
 -- Gegevens worden geëxporteerd voor tabel `klanten`
 --
 
-INSERT INTO `klanten` (`ID`, `Naam`, `Email`, `Wachtwoord`, `Telefoon`, `role`) VALUES
-(1, 'test', 'test@live.nl', 'test', '010477849', 0),
-(2, 'Aaltje', 'aaltje.vincent@yahoo.com', 'Aaltje', '12345678', 1),
-(3, 'loubna', 'loubna@test.com', 'loubna', '0699999999', 1);
+INSERT INTO `klanten` (`ID`, `Naam`, `Email`, `Telefoon`, `Wachtwoord`, `role`) VALUES
+(1, 'test', 'test@live.nl', '010477849', 'test', 0),
+(29, 'Aaltje', 'aaltje_vincent@gmail.com', '0104999999', 'Aaltje', 1);
 
 -- --------------------------------------------------------
 
@@ -101,14 +93,7 @@ CREATE TABLE `overnachtingen` (
   `FKboekingenID` int(11) NOT NULL,
   `FKherbergenID` int(11) NOT NULL,
   `FKstatussenID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Gegevens worden geëxporteerd voor tabel `overnachtingen`
---
-
-INSERT INTO `overnachtingen` (`ID`, `FKboekingenID`, `FKherbergenID`, `FKstatussenID`) VALUES
-(1, 3, 3, 3);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -121,14 +106,7 @@ CREATE TABLE `pauzeplaatsen` (
   `FKboekingenID` int(11) NOT NULL,
   `FKrestaurantsID` int(11) NOT NULL,
   `FKstatussenID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Gegevens worden geëxporteerd voor tabel `pauzeplaatsen`
---
-
-INSERT INTO `pauzeplaatsen` (`ID`, `FKboekingenID`, `FKrestaurantsID`, `FKstatussenID`) VALUES
-(1, 3, 3, 3);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -150,7 +128,7 @@ CREATE TABLE `restaurants` (
 --
 
 INSERT INTO `restaurants` (`ID`, `Naam`, `Adres`, `Email`, `Telefoon`, `Coordinaten`) VALUES
-(3, 'Het Gemaaltje', '010345789098', 'Johan De Wittstraat 6', 'gemaaltje@yahoo.com', '12.45700');
+(3, 'hallo', '010345789098', 'cemeterystreet 2', 'hallo@yahoo.com', 'yah');
 
 -- --------------------------------------------------------
 
@@ -160,18 +138,11 @@ INSERT INTO `restaurants` (`ID`, `Naam`, `Adres`, `Email`, `Telefoon`, `Coordina
 
 CREATE TABLE `statussen` (
   `ID` int(11) NOT NULL,
-  `StatusCode` tinyint(4) DEFAULT NULL,
-  `Status` varchar(40) DEFAULT NULL,
-  `Verwijderbaar` tinyint(4) DEFAULT NULL,
-  `PINtoekennen` tinyint(4) DEFAULT NULL
+  `StatusCode` tinyint(4) NOT NULL,
+  `Status` varchar(40) NOT NULL,
+  `Verwijderbaar` tinyint(4) NOT NULL,
+  `PINtoekennen` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Gegevens worden geëxporteerd voor tabel `statussen`
---
-
-INSERT INTO `statussen` (`ID`, `StatusCode`, `Status`, `Verwijderbaar`, `PINtoekennen`) VALUES
-(1, 22, '333', 4, 4);
 
 -- --------------------------------------------------------
 
@@ -186,14 +157,6 @@ CREATE TABLE `tochten` (
   `AantalDagen` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Gegevens worden geëxporteerd voor tabel `tochten`
---
-
-INSERT INTO `tochten` (`ID`, `Omschrijving`, `Route`, `AantalDagen`) VALUES
-(1, 'Rijdt langs voormalig Moresnet', 'Antwerp-Aken', 3),
-(3, 'Langs de Pyreneeën', 'Utrecht-Canfranc', 6);
-
 -- --------------------------------------------------------
 
 --
@@ -203,19 +166,10 @@ INSERT INTO `tochten` (`ID`, `Omschrijving`, `Route`, `AantalDagen`) VALUES
 CREATE TABLE `trackers` (
   `ID` int(11) NOT NULL,
   `PINCode` int(11) NOT NULL,
-  `StartLat` double NOT NULL,
-  `StartLon` double NOT NULL,
-  `EndLat` double NOT NULL,
-  `EndLon` double NOT NULL,
+  `Lat` double NOT NULL,
+  `Lon` double NOT NULL,
   `Time` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Gegevens worden geëxporteerd voor tabel `trackers`
---
-
-INSERT INTO `trackers` (`ID`, `PINCode`, `StartLat`, `StartLon`, `EndLat`, `EndLon`, `Time`) VALUES
-(1, 3266, 4.41453, 51.21704, 6.08371, 50.77422, 195430);
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -225,7 +179,8 @@ INSERT INTO `trackers` (`ID`, `PINCode`, `StartLat`, `StartLon`, `EndLat`, `EndL
 -- Indexen voor tabel `boekingen`
 --
 ALTER TABLE `boekingen`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `FKtochtenID` (`FKtochtenID`,`FKklantenID`,`FKstatussenID`);
 
 --
 -- Indexen voor tabel `herbergen`
@@ -243,13 +198,15 @@ ALTER TABLE `klanten`
 -- Indexen voor tabel `overnachtingen`
 --
 ALTER TABLE `overnachtingen`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `FKboekingenID` (`FKboekingenID`,`FKherbergenID`,`FKstatussenID`);
 
 --
 -- Indexen voor tabel `pauzeplaatsen`
 --
 ALTER TABLE `pauzeplaatsen`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `FKboekingenID` (`FKboekingenID`,`FKrestaurantsID`,`FKstatussenID`);
 
 --
 -- Indexen voor tabel `restaurants`
@@ -280,34 +237,16 @@ ALTER TABLE `trackers`
 --
 
 --
--- AUTO_INCREMENT voor een tabel `boekingen`
---
-ALTER TABLE `boekingen`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT voor een tabel `herbergen`
 --
 ALTER TABLE `herbergen`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT voor een tabel `klanten`
 --
 ALTER TABLE `klanten`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT voor een tabel `overnachtingen`
---
-ALTER TABLE `overnachtingen`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT voor een tabel `pauzeplaatsen`
---
-ALTER TABLE `pauzeplaatsen`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT voor een tabel `restaurants`
@@ -325,13 +264,13 @@ ALTER TABLE `statussen`
 -- AUTO_INCREMENT voor een tabel `tochten`
 --
 ALTER TABLE `tochten`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT voor een tabel `trackers`
 --
 ALTER TABLE `trackers`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
